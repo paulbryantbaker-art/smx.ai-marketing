@@ -60,7 +60,17 @@ h1.section { font-family:'Sora'; font-weight:800; line-height:1.0; letter-spacin
 p.sub { font-family:'Inter'; font-weight:400; font-size:30px; line-height:1.4; color:__body__; margin-top:34px; max-width:920px; }
 p.sub strong { color:__ink__; font-weight:600; }
 
-.cover-byline { margin-top:55px; display:flex; align-items:center; gap:21px; }
+.mega-compare { margin-top:34px; border-top:1px solid __border__; border-bottom:1px solid __border__; padding:21px 0; }
+.mega-row { display:flex; justify-content:space-between; align-items:baseline; padding:13px 0; }
+.mega-row .label { font-family:'Inter'; font-size:24px; font-weight:500; color:__muted__; }
+.mega-row .val { font-family:'Sora'; font-weight:800; font-size:55px; letter-spacing:-0.04em; color:__ink__; }
+.mega-row .val.muted { color:__muted__; font-size:48px; }
+.mega-row .val.accent { color:__accent__; }
+.mega-gap { display:flex; justify-content:space-between; align-items:baseline; margin-top:13px; padding:21px 0 0 0; border-top:3px solid __accent__; }
+.mega-gap .label { font-family:'Inter'; font-size:21px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:__accent__; }
+.mega-gap .val { font-family:'Sora'; font-weight:800; font-size:89px; letter-spacing:-0.045em; color:__accent__; }
+
+.cover-byline { margin-top:34px; display:flex; align-items:center; gap:21px; }
 .cover-byline .portrait { width:89px; height:89px; border-radius:50%; object-fit:cover; object-position:center; border:2px solid __border__; }
 .cover-byline .who .name { font-family:'Sora'; font-weight:800; font-size:34px; letter-spacing:-0.02em; color:__ink__; }
 .cover-byline .who .cred { font-family:'Inter'; font-size:24px; font-weight:500; color:__muted__; margin-top:8px; }
@@ -79,7 +89,7 @@ p.sub strong { color:__ink__; font-weight:600; }
 
 /* Deliverable list (dark KV with role tag on right) */
 .kv-card-dark { background:#0f1012; border-radius:14px; padding:18px 34px 8px 34px; margin-top:34px; box-shadow: 0 21px 55px -34px rgba(15,16,18,0.45); }
-.kv-card-dark .row { display:flex; justify-content:space-between; align-items:baseline; padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
+.kv-card-dark .row { display:flex; justify-content:space-between; align-items:baseline; padding:13px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
 .kv-card-dark .row:last-child { border-bottom:none; }
 .kv-card-dark .row.divider { border-top:1.5px solid rgba(232,112,154,0.5); margin-top:8px; padding-top:18px; }
 .kv-card-dark .row .k { font-family:'Inter'; font-size:24px; font-weight:600; color:#f9f9fc; }
@@ -108,7 +118,7 @@ p.sub strong { color:__ink__; font-weight:600; }
 .cost-card .cost-row.last { border-bottom:none; padding-bottom:0; }
 .cost-card .cost-row .label { }
 .cost-card .cost-row .label .name { font-family:'Sora'; font-weight:800; font-size:24px; color:#0f1012; letter-spacing:-0.02em; }
-.cost-card .cost-row .label .calc { font-family:'Inter'; font-size:18px; font-weight:500; color:#6e6a63; margin-top:4px; }
+.cost-card .cost-row .label .calc { font-family:'Inter'; font-size:18px; font-weight:500; color:#6e6a63; margin-top:8px; }
 .cost-card .cost-row .price { font-family:'Sora'; font-weight:800; font-size:48px; letter-spacing:-0.03em; color:#3c3d40; }
 .cost-card .cost-row.accent .price { color:#D44A78; font-size:64px; }
 .cost-card .punchline { margin-top:21px; padding-top:21px; border-top:3px solid #D44A78; font-family:'Sora'; font-weight:800; font-size:32px; line-height:1.18; letter-spacing:-0.02em; color:#0f1012; }
@@ -156,6 +166,21 @@ S1 = wrap(f"""
       Every deliverable a boutique IB ships on a $30M sell-side.
       <strong>The 10% she doesn&rsquo;t?</strong> You pick up the phone.
     </p>
+
+    <div class="mega-compare">
+      <div class="mega-row">
+        <span class="label">Total IB deliverables</span>
+        <span class="val muted num">14</span>
+      </div>
+      <div class="mega-row">
+        <span class="label">Yulia produces</span>
+        <span class="val accent num">11</span>
+      </div>
+      <div class="mega-gap">
+        <span class="label">Still yours</span>
+        <span class="val num">3</span>
+      </div>
+    </div>
 
     <div class="cover-byline">
       <img src="data:image/jpeg;base64,{HEADSHOT}" class="portrait">

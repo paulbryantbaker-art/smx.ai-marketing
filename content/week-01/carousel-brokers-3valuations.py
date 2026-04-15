@@ -60,7 +60,17 @@ h1.section { font-family:'Sora'; font-weight:800; line-height:1.0; letter-spacin
 p.sub { font-family:'Inter'; font-weight:400; font-size:30px; line-height:1.4; color:__body__; margin-top:34px; max-width:920px; }
 p.sub strong { color:__ink__; font-weight:600; }
 
-.cover-byline { margin-top:55px; display:flex; align-items:center; gap:21px; }
+.mega-compare { margin-top:34px; border-top:1px solid __border__; border-bottom:1px solid __border__; padding:21px 0; }
+.mega-row { display:flex; justify-content:space-between; align-items:baseline; padding:13px 0; }
+.mega-row .label { font-family:'Inter'; font-size:24px; font-weight:500; color:__muted__; }
+.mega-row .val { font-family:'Sora'; font-weight:800; font-size:55px; letter-spacing:-0.04em; color:__ink__; }
+.mega-row .val.muted { color:__muted__; font-size:48px; }
+.mega-row .val.accent { color:__accent__; }
+.mega-gap { display:flex; justify-content:space-between; align-items:baseline; margin-top:13px; padding:21px 0 0 0; border-top:3px solid __accent__; }
+.mega-gap .label { font-family:'Inter'; font-size:21px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:__accent__; }
+.mega-gap .val { font-family:'Sora'; font-weight:800; font-size:89px; letter-spacing:-0.045em; color:__accent__; }
+
+.cover-byline { margin-top:34px; display:flex; align-items:center; gap:21px; }
 .cover-byline .portrait { width:89px; height:89px; border-radius:50%; object-fit:cover; object-position:center; border:2px solid __border__; }
 .cover-byline .who .name { font-family:'Sora'; font-weight:800; font-size:34px; letter-spacing:-0.02em; color:__ink__; }
 .cover-byline .who .cred { font-family:'Inter'; font-size:24px; font-weight:500; color:__muted__; margin-top:8px; }
@@ -78,7 +88,7 @@ p.sub strong { color:__ink__; font-weight:600; }
 .attr-imm .meta { font-family:'Inter'; font-size:22px; font-weight:500; color:rgba(255,255,255,0.7); }
 
 .list-card-dark { background:#0f1012; border-radius:14px; padding:13px 34px 8px 34px; margin-top:34px; box-shadow: 0 21px 55px -34px rgba(15,16,18,0.45); }
-.list-card-dark .row { padding:18px 0; border-bottom:1px solid rgba(255,255,255,0.08); font-family:'Inter'; font-size:28px; font-weight:600; color:#f9f9fc; }
+.list-card-dark .row { padding:21px 0; border-bottom:1px solid rgba(255,255,255,0.08); font-family:'Inter'; font-size:28px; font-weight:600; color:#f9f9fc; }
 .list-card-dark .row:last-child { border-bottom:none; }
 
 .role-card { background:__card_bg__; border:1px solid __border__; border-radius:14px; padding:21px 34px 13px 34px; margin-top:34px; }
@@ -97,7 +107,7 @@ p.sub strong { color:__ink__; font-weight:600; }
 .ba-col { }
 .ba-col-label { font-family:'Inter'; font-size:18px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:#6e6a63; padding-bottom:13px; border-bottom:1px solid rgba(15,16,18,0.08); }
 .ba-col.accent .ba-col-label { color:#D44A78; }
-.ba-step { display:flex; justify-content:space-between; align-items:baseline; padding:10px 0; }
+.ba-step { display:flex; justify-content:space-between; align-items:baseline; padding:13px 0; }
 .ba-step .step { font-family:'Inter'; font-size:20px; font-weight:500; color:#6e6a63; }
 .ba-step .time { font-family:'Sora'; font-weight:800; font-size:22px; color:#3c3d40; letter-spacing:-0.02em; }
 .ba-col.accent .ba-step .time { color:#D44A78; }
@@ -151,6 +161,21 @@ S1 = wrap(f"""
       <strong>Multi-methodology.</strong> Documented add-backs.
       Defensible math.
     </p>
+
+    <div class="mega-compare">
+      <div class="mega-row">
+        <span class="label">Client companies valued</span>
+        <span class="val muted num">3</span>
+      </div>
+      <div class="mega-row">
+        <span class="label">Methodologies per company</span>
+        <span class="val accent num">3</span>
+      </div>
+      <div class="mega-gap">
+        <span class="label">Time compression vs traditional</span>
+        <span class="val num">21&times;</span>
+      </div>
+    </div>
 
     <div class="cover-byline">
       <img src="data:image/jpeg;base64,{HEADSHOT}" class="portrait">

@@ -55,7 +55,7 @@ h1.hook .arrow { color:__accent__; }
 
 /* Itemized list of the 4 hidden adjustments */
 .items-card { margin-top:21px; background:#ffffff; border:1px solid __border__; border-radius:14px; padding:21px 34px 13px 34px; }
-.items-card .row { display:flex; justify-content:space-between; align-items:baseline; padding:14px 0; border-bottom:1px solid __border_soft__; }
+.items-card .row { display:flex; justify-content:space-between; align-items:baseline; padding:13px 0; border-bottom:1px solid __border_soft__; }
 .items-card .row:last-child { border-bottom:none; }
 .items-card .row .desc { font-family:'Inter'; font-size:22px; font-weight:500; color:__body__; line-height:1.3; max-width:600px; }
 .items-card .row .amt { font-family:'Sora'; font-weight:800; font-size:32px; color:__ink__; letter-spacing:-0.02em; }
@@ -71,10 +71,10 @@ h1.hook .arrow { color:__accent__; }
 .byline .who { display:flex; align-items:center; gap:21px; }
 .byline .portrait { width:64px; height:64px; border-radius:50%; object-fit:cover; object-position:center; border:2px solid __border__; }
 .byline .who-text .name { font-family:'Sora'; font-weight:800; font-size:26px; letter-spacing:-0.02em; color:__ink__; }
-.byline .who-text .cred { font-family:'Inter'; font-size:20px; font-weight:500; color:__muted__; margin-top:4px; }
+.byline .who-text .cred { font-family:'Inter'; font-size:20px; font-weight:500; color:__muted__; margin-top:8px; }
 .byline .right { text-align:right; }
 .byline .right .cta { font-family:'Inter'; font-size:22px; font-weight:700; color:__accent__; text-transform:uppercase; letter-spacing:0.15em; }
-.byline .right .meta { font-family:'Inter'; font-size:18px; font-weight:500; color:__muted__; margin-top:4px; }
+.byline .right .meta { font-family:'Inter'; font-size:18px; font-weight:500; color:__muted__; margin-top:8px; }
 """
 
 for k, v in TOK.items(): CSS = CSS.replace(f"__{k}__", v)

@@ -66,7 +66,17 @@ p.sub { font-family:'Inter'; font-weight:400; font-size:30px; line-height:1.4; c
 p.sub strong { color:__ink__; font-weight:600; }
 .sub-stack > div + div { margin-top:8px; }
 
-.cover-byline { margin-top:55px; display:flex; align-items:center; gap:21px; }
+.mega-compare { margin-top:34px; border-top:1px solid __border__; border-bottom:1px solid __border__; padding:21px 0; }
+.mega-row { display:flex; justify-content:space-between; align-items:baseline; padding:13px 0; }
+.mega-row .label { font-family:'Inter'; font-size:24px; font-weight:500; color:__muted__; }
+.mega-row .val { font-family:'Sora'; font-weight:800; font-size:55px; letter-spacing:-0.04em; color:__ink__; }
+.mega-row .val.muted { color:__muted__; font-size:48px; }
+.mega-row .val.accent { color:__accent__; }
+.mega-gap { display:flex; justify-content:space-between; align-items:baseline; margin-top:13px; padding:21px 0 0 0; border-top:3px solid __accent__; }
+.mega-gap .label { font-family:'Inter'; font-size:21px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:__accent__; }
+.mega-gap .val { font-family:'Sora'; font-weight:800; font-size:89px; letter-spacing:-0.045em; color:__accent__; }
+
+.cover-byline { margin-top:34px; display:flex; align-items:center; gap:21px; }
 .cover-byline .portrait { width:89px; height:89px; border-radius:50%; object-fit:cover; object-position:center; border:2px solid __border__; }
 .cover-byline .who .name { font-family:'Sora'; font-weight:800; font-size:34px; letter-spacing:-0.02em; color:__ink__; }
 .cover-byline .who .cred { font-family:'Inter'; font-size:24px; font-weight:500; color:__muted__; margin-top:8px; }
@@ -85,7 +95,7 @@ p.sub strong { color:__ink__; font-weight:600; }
 
 /* ── List card (dark, list-style — for section labels without right values) ── */
 .list-card-dark { background:#0f1012; border-radius:14px; padding:13px 34px 8px 34px; margin-top:34px; box-shadow: 0 21px 55px -34px rgba(15,16,18,0.45); }
-.list-card-dark .row { padding:18px 0; border-bottom:1px solid rgba(255,255,255,0.08); font-family:'Inter'; font-size:28px; font-weight:600; color:#f9f9fc; }
+.list-card-dark .row { padding:21px 0; border-bottom:1px solid rgba(255,255,255,0.08); font-family:'Inter'; font-size:28px; font-weight:600; color:#f9f9fc; }
 .list-card-dark .row:last-child { border-bottom:none; }
 
 /* ── Ask/Pull/Write 3-row card (bordered) ── */
@@ -110,7 +120,7 @@ p.sub strong { color:__ink__; font-weight:600; }
 .cim-kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:13px; margin-top:21px; padding-top:21px; border-top:1px solid rgba(15,16,18,0.08); }
 .cim-kpis .kpi { }
 .cim-kpis .kpi .label { font-family:'Inter'; font-size:13px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:#6e6a63; }
-.cim-kpis .kpi .value { font-family:'Sora'; font-weight:800; font-size:24px; color:#0f1012; letter-spacing:-0.02em; margin-top:4px; }
+.cim-kpis .kpi .value { font-family:'Sora'; font-weight:800; font-size:24px; color:#0f1012; letter-spacing:-0.02em; margin-top:8px; }
 .cim-kpis .kpi .value.accent { color:#D44A78; }
 .cim-foot { padding:13px 34px; background:#f4f4f7; border-top:1px solid rgba(15,16,18,0.08); font-family:'Inter'; font-size:14px; font-weight:500; color:#6e6a63; display:flex; justify-content:space-between; }
 
@@ -155,9 +165,21 @@ S1 = wrap(f"""
       40 hours &rarr; 30 minutes.
     </h1>
 
-    <div class="sub-stack" style="margin-top:34px;">
-      <p class="sub" style="margin-top:0;">Same CIM. Same 32 pages.</p>
-      <p class="sub" style="margin-top:0;">Institutional quality.</p>
+    <p class="sub">Same CIM. Same 32 pages. Institutional quality.</p>
+
+    <div class="mega-compare">
+      <div class="mega-row">
+        <span class="label">Your analyst</span>
+        <span class="val muted num">40 hrs</span>
+      </div>
+      <div class="mega-row">
+        <span class="label">Yulia</span>
+        <span class="val accent num">30 min</span>
+      </div>
+      <div class="mega-gap">
+        <span class="label">Time leverage</span>
+        <span class="val num">80&times;</span>
+      </div>
     </div>
 
     <div class="cover-byline">
