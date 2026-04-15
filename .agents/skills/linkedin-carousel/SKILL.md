@@ -202,7 +202,7 @@ Always inline `style="font-size:Xpx"`. Per-slide sizing:
 - Hook on close (statement): 72–84px
 - Section headlines: 60–72px
 
-`<br>` is acceptable **only** for multi-fragment cadence where each fragment is a complete thought ("Same metro.<br>Same revenue.<br>Same year." / "40 hours.<br>30 minutes.<br>Same CIM."). **Never use `<br>` inside a single sentence.** If a single-sentence hook doesn't fit on one line at your chosen H1 size, reduce the font size until it does, or let CSS word-wrap pick the break point. Force-breaking "Hidden in<br>plain sight." (splitting a prepositional phrase) is the AI-slop tell.
+**Never use `<br>` in any headline or punchline.** Ever. Not for mid-sentence breaks, not for multi-fragment cadence, not for "deliberate rhythm." Paul has flagged `<br>` as AI-generated every time it's appeared. The absolute rule: H1s, hooks, section headlines, punchlines — no `<br>` anywhere. If you need two distinct statements on separate lines, wrap each in its own block element (`<div>` / `<p>`). If a single phrase doesn't fit one line, reduce the font-size until it does, or let CSS word-wrap pick the break point naturally.
 
 ### 7. Footer + attr_imm
 

@@ -16,7 +16,7 @@
 
 ### Typography
 
-- **Never `<br>` inside a single sentence.** "Hidden in<br>plain sight." is wrong — it splits a phrase the way no human typographer would. If the sentence doesn't fit one line at your chosen H1 size, **reduce font-size** or **let CSS word-wrap pick the break**. `<br>` is only acceptable between multiple complete fragments ("Same metro.<br>Same revenue.<br>Same year.").
+- **Never use `<br>` in any H1 or punchline. Ever.** Not for mid-sentence breaks, not for "fragment cadence" between multiple sentences — every time I've tried the "fragment cadence allowed" exception, Paul has flagged it as AI-generated. Fix: (a) reduce font-size until the whole line fits, or (b) if you have two distinct statements that must be on separate lines, wrap each in its own block element (`<div>` / `<p>`). **`<br>` is an AI-slop tell and belongs in no asset.**
 - **Mobile typography floor:** LinkedIn is 95%+ mobile. 1080 canvas shrinks ÷3 to ~360px thumbnail. Floors: eyebrow 28px, body 34px, KV key 28px, KV value 34–38px, footer 26px.
 - **Sora 800 + Inter.** No third font. Avoid weight 700.
 

@@ -299,8 +299,8 @@ S1 = wrap(f"""
       <span>Brokers &nbsp;·&nbsp; $8M EBITDA &nbsp;·&nbsp; CIM</span>
     </div>
 
-    <h1 class="hook" style="font-size:104px;">
-      40 hours.<br>30 minutes.<br>Same CIM.
+    <h1 class="hook" style="font-size:76px;">
+      40 hours. 30 minutes. Same CIM.
     </h1>
 
     <div class="mega-compare">

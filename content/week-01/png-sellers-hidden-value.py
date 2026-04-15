@@ -112,9 +112,10 @@ h1.hook {
 .punchline {
     margin-top:55px; padding-left:34px;
     border-left:8px solid __accent__;
-    font-family:'Sora'; font-weight:800; font-size:38px;
-    line-height:1.18; letter-spacing:-0.025em; color:__ink__;
+    font-family:'Sora'; font-weight:800; font-size:32px;
+    line-height:1.25; letter-spacing:-0.02em; color:__ink__;
 }
+.punchline > div + div { margin-top:8px; }
 .punchline .accent { color:__accent__; }
 
 .byline {
@@ -180,8 +181,8 @@ HTML = f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>{CSS}</style>
   </div>
 
   <div class="punchline">
-    Your broker hasn&rsquo;t found new value since the day you hired them.<br>
-    Yulia finds it in the <span class="accent">first conversation</span>.
+    <div>Your broker hasn&rsquo;t found new value since the day you hired them.</div>
+    <div>Yulia finds it in the <span class="accent">first conversation</span>.</div>
   </div>
 
   <div class="byline">

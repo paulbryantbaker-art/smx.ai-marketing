@@ -168,8 +168,8 @@ S1 = wrap(f"""
       <span>Brokers &nbsp;·&nbsp; $5M&ndash;$15M EBITDA &nbsp;·&nbsp; Valuations</span>
     </div>
 
-    <h1 class="hook" style="font-size:108px;">
-      3 valuations.<br>One morning.
+    <h1 class="hook" style="font-size:68px;">
+      3 valuations. One morning.
     </h1>
 
     <div class="mega-compare">

@@ -133,7 +133,7 @@ h1.hook {
 }
 ```
 
-`<br>` is acceptable **only** for multi-fragment cadence (each `<br>`-separated piece is a complete thought, like "40 hours.<br>30 minutes."). **Never use `<br>` inside a single sentence.** If "Hidden in plain sight." doesn't fit on one line at 84px, reduce the H1 size to ~72px so the whole phrase fits — do not force-split it. Size per content: 72–84px for most hooks; drop to 64–68px if the phrase is long.
+**Never use `<br>` in any headline or punchline.** Ever. Not even for multi-fragment cadence between complete sentences. Paul has flagged `<br>` as AI-generated every time it's appeared. If a phrase doesn't fit one line at 84px, reduce H1 size to ~72px until it does. If you need two distinct statements on separate lines, wrap each in its own `<div>` block. Size per content: 68–84px for hooks; drop lower if the phrase is long. **The `<br>` tag has no place in any smbx.ai asset.**
 
 ### Visual options
 

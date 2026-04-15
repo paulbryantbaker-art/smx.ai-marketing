@@ -149,8 +149,8 @@ S1 = wrap(f"""
       <span>PE / Funds &nbsp;·&nbsp; Sell-side &nbsp;·&nbsp; IB stack</span>
     </div>
 
-    <h1 class="hook" style="font-size:100px;">
-      90% Yulia.<br>10% you.
+    <h1 class="hook" style="font-size:88px;">
+      90% Yulia. 10% you.
     </h1>
 
     <div class="mega-compare">
@@ -248,8 +248,7 @@ S4 = wrap(f"""
       </div>
 
       <div class="punchline">
-        That&rsquo;s where your <em>fee lives</em>.<br>
-        The rest, Yulia writes.
+        Your fee lives where <em>Yulia can&rsquo;t</em>.
       </div>
     </div>
 
