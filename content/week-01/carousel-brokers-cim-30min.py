@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
 """
-smbx.ai LinkedIn Carousel — Monday Post 4: Deal Pros
-"Closed 3 vs Zero" — SearchFunder (9.4K)
+smbx.ai LinkedIn Carousel — Monday Week 1, Post 1
+"CIM in 30 Minutes" — Brokers · M&A Network (283K) · Carousel (5)
 
-Built to the smbx.ai DESIGN_LANGUAGE.md (2026-04-15 redesign), with
-LinkedIn-mobile typography compensation and Fibonacci spacing.
+Source: SMBX_90_DAY_PLAN.xlsx, Week 1 Monday, Row 1
+Hook: "A CIM takes your team 40 hours. Yulia generates one in 30 minutes.
+Same 30 pages. Institutional quality."
+Deal size: $8M EBITDA · Pillar: P1 Yulia Does the Work · CTA: Talk to Yulia. smbx.ai
 
-Deck rhythm:
-  S1 cover    LIGHT  Field Note masthead, mega-compare (3 vs 0, $12K vs $85K)
-  S2          LIGHT  The funnel — dark KV card 1,200 → 3
-  S3          LIGHT  The 3 deals — bordered card with EBITDAs + multiples
-  S4          DARK   Cinematic anchor — quote + cost gap
-  S5 close    LIGHT  Sora prompt + dark ring-CTA block
+Built to the smbx.ai DESIGN_LANGUAGE.md canon (2026-04-15):
+  - Field Note masthead (No. 11), two-variant eyebrows, Sora 800 + Inter
+  - Light-dominant rhythm with dark cinematic anchor at S4
+  - Fibonacci spacing, mobile-readable typography
+  - CTA block = "Talk to Yulia" (not Baseline — this is Product-phase content)
 
 Usage:
-    python3 carousel-dealpros-closed3.py            # light deck (default)
-    python3 carousel-dealpros-closed3.py dark
+    python3 carousel-brokers-cim-30min.py
 """
 
 import os, sys, base64, tempfile
@@ -32,14 +32,14 @@ MODE = sys.argv[1].lower() if len(sys.argv) > 1 else "light"
 assert MODE in ("light", "dark")
 
 YEAR_WEEK = "2026 · Week 01"
-NOTE_NO   = "No. 38"
+NOTE_NO   = "No. 11"
+GROUP     = "M&A Network (283K)"   # appears in cover eyebrow trail and filename
 
 TOKENS = {
     "light": {
         "bg":"#F9F9FC", "bg_alt":"#f4f4f7",
         "ink":"#0f1012", "body":"#3c3d40", "muted":"#6e6a63",
-        "accent":"#D44A78", "accent_hover":"#B03860",
-        "tint":"rgba(212,74,120,0.08)",
+        "accent":"#D44A78", "tint":"rgba(212,74,120,0.08)",
         "border":"rgba(15,16,18,0.08)", "border_soft":"rgba(15,16,18,0.06)",
         "card_bg":"#ffffff",
         "logo_file":"G3L.png",
@@ -47,8 +47,7 @@ TOKENS = {
     "dark": {
         "bg":"#1A1C1E", "bg_alt":"#151617",
         "ink":"#f9f9fc", "body":"rgba(218,218,220,0.85)", "muted":"rgba(218,218,220,0.55)",
-        "accent":"#E8709A", "accent_hover":"#B03860",
-        "tint":"rgba(232,112,154,0.10)",
+        "accent":"#E8709A", "tint":"rgba(232,112,154,0.10)",
         "border":"rgba(255,255,255,0.08)", "border_soft":"rgba(255,255,255,0.06)",
         "card_bg":"#1a1c1e",
         "logo_file":"G3D.png",
@@ -57,19 +56,15 @@ TOKENS = {
 TOK = TOKENS[MODE]
 
 IMM = {
-    "bg":"#0f1012",
-    "ink":"#f9f9fc",
-    "muted":"rgba(255,255,255,0.55)",
-    "body":"rgba(255,255,255,0.78)",
-    "accent": TOK["accent"],
-    "border":"rgba(255,255,255,0.10)",
+    "bg":"#0f1012", "ink":"#f9f9fc",
+    "muted":"rgba(255,255,255,0.55)", "body":"rgba(255,255,255,0.78)",
+    "accent": TOK["accent"], "border":"rgba(255,255,255,0.10)",
 }
 
 def b64(path):
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-LOGO_LIGHT_BG = b64(REPO / "assets" / "logos" / "G3L.png")
 LOGO_DARK_BG  = b64(REPO / "assets" / "logos" / "G3D.png")
 LOGO_DECK     = b64(REPO / "assets" / "logos" / TOK["logo_file"])
 HEADSHOT      = b64(REPO / "assets" / "portrait-square.jpeg")
@@ -117,15 +112,13 @@ body { width:1080px; height:1350px; overflow:hidden; font-family:'Inter', system
 .canvas.imm .eyebrow-section { color:__imm_accent__; }
 
 h1.hook {
-    font-family:'Sora'; font-weight:800;
-    line-height:0.94; letter-spacing:-0.04em;
+    font-family:'Sora'; font-weight:800; line-height:0.94; letter-spacing:-0.04em;
     color:__ink__; margin-top:21px;
 }
 .canvas.imm h1.hook { color:__imm_ink__; }
 
 h1.section {
-    font-family:'Sora'; font-weight:800;
-    line-height:1.0; letter-spacing:-0.03em;
+    font-family:'Sora'; font-weight:800; line-height:1.0; letter-spacing:-0.03em;
     color:__ink__; margin-top:21px;
 }
 .canvas.imm h1.section { color:__imm_ink__; }
@@ -141,28 +134,20 @@ p.sub strong { color:__ink__; font-weight:600; }
     border-top:1px solid __border__; border-bottom:1px solid __border__;
     padding:21px 0;
 }
-.mega-row {
-    display:flex; justify-content:space-between; align-items:baseline;
-    padding:13px 0;
-}
+.mega-row { display:flex; justify-content:space-between; align-items:baseline; padding:13px 0; }
 .mega-row .label { font-family:'Inter'; font-size:30px; font-weight:500; color:__muted__; }
 .mega-row .val { font-family:'Sora'; font-weight:800; font-size:64px; letter-spacing:-0.04em; color:__ink__; }
 .mega-row .val.muted { color:__muted__; font-size:55px; }
 .mega-row .val.accent { color:__accent__; }
 .mega-gap {
     display:flex; justify-content:space-between; align-items:baseline;
-    margin-top:13px; padding:21px 0 0 0;
-    border-top:3px solid __accent__;
+    margin-top:13px; padding:21px 0 0 0; border-top:3px solid __accent__;
 }
-.mega-gap .label {
-    font-family:'Inter'; font-size:24px; font-weight:700;
-    text-transform:uppercase; letter-spacing:0.18em; color:__accent__;
-}
-.mega-gap .val { font-family:'Sora'; font-weight:800; font-size:76px; letter-spacing:-0.045em; color:__accent__; }
+.mega-gap .label { font-family:'Inter'; font-size:24px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:__accent__; }
+.mega-gap .val { font-family:'Sora'; font-weight:800; font-size:89px; letter-spacing:-0.045em; color:__accent__; }
 
 .cover-byline {
-    margin-top:55px;
-    display:flex; align-items:center; gap:21px;
+    margin-top:55px; display:flex; align-items:center; gap:21px;
 }
 .cover-byline .portrait {
     width:89px; height:89px; border-radius:50%;
@@ -173,17 +158,23 @@ p.sub strong { color:__ink__; font-weight:600; }
 
 .cover-swipe {
     margin-top:auto;
-    display:flex; align-items:center; justify-content:flex-end;
+    display:flex; align-items:center; justify-content:space-between;
     padding-top:21px; border-top:1px solid __border__;
 }
-.cover-swipe .hint { font-family:'Inter'; font-size:24px; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color:__accent__; }
+.cover-swipe .group {
+    font-family:'Inter'; font-size:22px; font-weight:500;
+    color:__muted__;
+}
+.cover-swipe .hint {
+    font-family:'Inter'; font-size:24px; font-weight:700;
+    text-transform:uppercase; letter-spacing:0.2em; color:__accent__;
+}
 
 .foot {
     margin-top:auto;
     display:flex; align-items:center; justify-content:space-between;
     padding-top:21px; border-top:1px solid __border__;
-    font-family:'Inter'; font-size:26px; font-weight:500;
-    color:__muted__;
+    font-family:'Inter'; font-size:26px; font-weight:500; color:__muted__;
 }
 .foot .who { display:flex; align-items:center; gap:13px; }
 .foot .portrait { width:48px; height:48px; border-radius:50%; object-fit:cover; object-position:center; border:1px solid __border__; }
@@ -208,8 +199,7 @@ p.sub strong { color:__ink__; font-weight:600; }
 }
 .kv-card-dark .row:last-child { border-bottom:none; }
 .kv-card-dark .row .k { font-family:'Inter'; font-size:28px; font-weight:600; color:rgba(255,255,255,0.55); }
-.kv-card-dark .row .v { font-family:'Sora'; font-weight:800; font-size:38px; letter-spacing:-0.02em; color:#f9f9fc; }
-.kv-card-dark .row .v.accent { color:__accent__; }
+.kv-card-dark .row .v { font-family:'Sora'; font-weight:800; font-size:34px; letter-spacing:-0.02em; color:#f9f9fc; }
 
 .kv-card {
     background:__card_bg__; border:1px solid __border__; border-radius:14px;
@@ -221,10 +211,9 @@ p.sub strong { color:__ink__; font-weight:600; }
 }
 .kv-card .row:last-child { border-bottom:none; }
 .kv-card .row .k { font-family:'Inter'; font-size:28px; font-weight:600; color:__muted__; }
-.kv-card .row .v { font-family:'Sora'; font-weight:800; font-size:34px; letter-spacing:-0.02em; color:__ink__; }
+.kv-card .row .v { font-family:'Sora'; font-weight:800; font-size:32px; letter-spacing:-0.02em; color:__ink__; }
 .kv-card .row .v.accent { color:__accent__; }
 
-/* Cinematic anchor — quote-style light card */
 .light-card {
     margin-top:55px;
     background:#ffffff;
@@ -237,24 +226,20 @@ p.sub strong { color:__ink__; font-weight:600; }
     font-family:'Inter'; font-size:28px; font-weight:600;
     text-transform:uppercase; letter-spacing:0.08em; color:#D44A78;
 }
-.light-card .quote {
-    font-family:'Sora'; font-weight:800; font-size:48px;
-    line-height:1.18; letter-spacing:-0.025em; color:#0f1012; margin-top:21px;
+.light-card .row-line {
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:13px 0; border-bottom:1px solid rgba(15,16,18,0.06);
 }
-.light-card .quote .accent { color:#D44A78; }
-.light-card .attribution {
-    font-family:'Inter'; font-size:22px; font-weight:500;
-    color:#6e6a63; margin-top:21px; padding-left:13px;
-    border-left:3px solid #D44A78;
-}
+.light-card .row-line:first-of-type { margin-top:21px; }
+.light-card .row-line .k { font-family:'Inter'; font-size:28px; font-weight:500; color:#6e6a63; }
+.light-card .row-line .v { font-family:'Sora'; font-weight:800; font-size:55px; letter-spacing:-0.03em; color:#3c3d40; }
 .light-card .gap-row {
     display:flex; justify-content:space-between; align-items:baseline;
-    padding-top:34px; margin-top:34px; border-top:3px solid #D44A78;
+    padding-top:34px; margin-top:21px; border-top:3px solid #D44A78;
 }
-.light-card .gap-row .k { font-family:'Inter'; font-size:24px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:#6e6a63; }
-.light-card .gap-row .v-pair { font-family:'Sora'; font-weight:800; font-size:48px; letter-spacing:-0.03em; color:#0f1012; }
-.light-card .gap-row .v-pair .vs { color:#6e6a63; font-weight:500; font-size:32px; margin:0 13px; }
-.light-card .gap-row .v-pair .accent { color:#D44A78; }
+.light-card .gap-row .k { font-family:'Inter'; font-size:28px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#D44A78; }
+.light-card .gap-row .v { font-family:'Sora'; font-weight:800; font-size:96px; letter-spacing:-0.045em; color:#D44A78; }
+.light-card .caption { font-family:'Inter'; font-size:24px; font-weight:400; color:#6e6a63; margin-top:21px; line-height:1.4; }
 
 .cta-ring {
     margin-top:55px;
@@ -262,13 +247,16 @@ p.sub strong { color:__ink__; font-weight:600; }
     border:1px solid rgba(212,74,120,0.55);
     border-radius:21px;
     padding:55px 48px 48px 48px;
-    box-shadow:
-        inset 0 0 0 1px rgba(212,74,120,0.18),
-        0 34px 55px -34px rgba(15,16,18,0.45);
+    box-shadow: inset 0 0 0 1px rgba(212,74,120,0.18), 0 34px 55px -34px rgba(15,16,18,0.45);
 }
 .cta-ring .cta-eyebrow { font-family:'Inter'; font-size:28px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:#E8709A; }
 .cta-ring h2 { font-family:'Sora'; font-weight:800; font-size:55px; line-height:1.04; letter-spacing:-0.03em; color:#f9f9fc; margin-top:21px; }
-.cta-ring .pill { display:inline-flex; align-items:center; gap:13px; margin-top:34px; padding:21px 34px; background:#E8709A; color:#0f1012; border-radius:999px; font-family:'Inter'; font-size:26px; font-weight:700; letter-spacing:0.02em; }
+.cta-ring .pill {
+    display:inline-flex; align-items:center; gap:13px;
+    margin-top:34px; padding:21px 34px;
+    background:#E8709A; color:#0f1012; border-radius:999px;
+    font-family:'Inter'; font-size:26px; font-weight:700; letter-spacing:0.02em;
+}
 .cta-ring .pill .arrow { font-family:'Sora'; font-weight:700; }
 .cta-ring .reassure { font-family:'Inter'; font-size:24px; font-weight:400; color:rgba(255,255,255,0.55); margin-top:21px; }
 """
@@ -305,32 +293,32 @@ def attr_imm():
     </div>"""
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# SLIDE 1 — COVER
+# S1 — COVER
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 S1 = wrap(f"""
     {masthead()}
 
     <div class="eyebrow-hook">
       <span class="dot"></span>
-      <span>Search funds &nbsp;·&nbsp; 14 months &nbsp;·&nbsp; Velocity</span>
+      <span>Brokers &nbsp;·&nbsp; $8M EBITDA &nbsp;·&nbsp; CIM</span>
     </div>
 
-    <h1 class="hook" style="font-size:96px;">
-      He closed 3.<br>His cohort closed 0.
+    <h1 class="hook" style="font-size:104px;">
+      40 hours.<br>30 minutes.<br>Same CIM.
     </h1>
 
     <div class="mega-compare">
       <div class="mega-row">
-        <span class="label">His deals closed</span>
-        <span class="val accent num">3</span>
+        <span class="label">Your analyst, tonight &amp; tomorrow</span>
+        <span class="val muted num">40 hrs</span>
       </div>
       <div class="mega-row">
-        <span class="label">Cohort deals closed</span>
-        <span class="val muted num">0</span>
+        <span class="label">Yulia, before your next call</span>
+        <span class="val accent num">30 min</span>
       </div>
       <div class="mega-gap">
-        <span class="label">Cost on dead deals &nbsp;·&nbsp; edge</span>
-        <span class="val num">7&times; cheaper</span>
+        <span class="label">Same 30 pages &nbsp;·&nbsp; institutional quality</span>
+        <span class="val num">80&times;</span>
       </div>
     </div>
 
@@ -343,40 +331,45 @@ S1 = wrap(f"""
     </div>
 
     <div class="cover-swipe">
+      <span class="group">For: {GROUP}</span>
       <span class="hint">Swipe &rsaquo;</span>
     </div>
 """, surface="light")
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# SLIDE 2 — The funnel (light, dark KV card)
+# S2 — What goes in a CIM (dark KV card)
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 S2 = wrap(f"""
-    <div class="eyebrow-section">The funnel</div>
+    <div class="eyebrow-section">The CIM, unpacked</div>
 
     <h1 class="section" style="font-size:64px;">
-      He killed <span class="num">60%</span> in under two minutes.
+      Every buyer expects these 6 sections.
     </h1>
 
     <div class="kv-card-dark">
       <div class="row">
-        <span class="k">Screened</span>
-        <span class="v num">1,200</span>
+        <span class="k">Executive summary</span>
+        <span class="v num">2 pages</span>
       </div>
       <div class="row">
-        <span class="k">Killed in &lt;2 min</span>
-        <span class="v num">720</span>
+        <span class="k">Investment highlights</span>
+        <span class="v num">3 pages</span>
       </div>
       <div class="row">
-        <span class="k">Second look</span>
-        <span class="v num">480</span>
+        <span class="k">Financials &amp; add-backs</span>
+        <span class="v num">8 pages</span>
       </div>
       <div class="row">
-        <span class="k">LOIs signed</span>
-        <span class="v num">5</span>
+        <span class="k">Market + competitive position</span>
+        <span class="v num">6 pages</span>
       </div>
       <div class="row">
-        <span class="k">Closed</span>
-        <span class="v num accent">3</span>
+        <span class="k">Growth thesis</span>
+        <span class="v num">6 pages</span>
+      </div>
+      <div class="row">
+        <span class="k">Management &amp; operations</span>
+        <span class="v num">5 pages</span>
       </div>
     </div>
 
@@ -384,31 +377,39 @@ S2 = wrap(f"""
 """, surface="light")
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# SLIDE 3 — The 3 deals (light, bordered card)
+# S3 — Yulia generates each (bordered card, with timings)
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 S3 = wrap(f"""
-    <div class="eyebrow-section">The 3 deals</div>
+    <div class="eyebrow-section">What Yulia does</div>
 
     <h1 class="section" style="font-size:60px;">
-      All three passed the screen on first look.
+      She writes each one while you&rsquo;re still brewing coffee.
     </h1>
 
     <div class="kv-card">
       <div class="row">
-        <span class="k">Environmental services</span>
-        <span class="v num">$2.1M EBITDA &middot; 5.2&times;</span>
+        <span class="k">Exec summary + highlights</span>
+        <span class="v num">4 min</span>
       </div>
       <div class="row">
-        <span class="k">Specialty logistics</span>
-        <span class="v num">$1.8M EBITDA &middot; 4.8&times;</span>
+        <span class="k">Financials + normalized add-backs</span>
+        <span class="v num">8 min</span>
       </div>
       <div class="row">
-        <span class="k">Facilities maintenance</span>
-        <span class="v num">$2.4M EBITDA &middot; 5.5&times;</span>
+        <span class="k">Market + competitive</span>
+        <span class="v num">6 min</span>
       </div>
       <div class="row">
-        <span class="k">All three had</span>
-        <span class="v">Managers, diversified revenue, clean financials</span>
+        <span class="k">Growth thesis</span>
+        <span class="v num">6 min</span>
+      </div>
+      <div class="row">
+        <span class="k">Management &amp; ops</span>
+        <span class="v num">6 min</span>
+      </div>
+      <div class="row">
+        <span class="k">Total runtime</span>
+        <span class="v num accent">30 min</span>
       </div>
     </div>
 
@@ -416,34 +417,34 @@ S3 = wrap(f"""
 """, surface="light")
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# SLIDE 4 — Cinematic anchor — quote + cost gap
+# S4 — Cinematic anchor: the leverage moment
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 S4 = wrap(f"""
-    <div class="eyebrow-section">Same access. Different posture.</div>
+    <div class="eyebrow-section">What 39.5 hours back looks like</div>
 
     <h1 class="section" style="font-size:60px;">
-      The advantage isn&rsquo;t deal flow.
+      CIM delivered. Day unbooked.
     </h1>
 
     <div class="light-card">
-      <div class="anchor-eyebrow">In his words</div>
+      <div class="anchor-eyebrow">Per CIM · $8M EBITDA engagement</div>
 
-      <div class="quote">
-        &ldquo;My cohort was looking for the perfect deal.<br>
-        I was looking for the <span class="accent">fastest no</span>.&rdquo;
+      <div class="row-line">
+        <span class="k">Analyst hours at $200/hr</span>
+        <span class="v num">$8,000</span>
       </div>
-
-      <div class="attribution">
-        Search fund operator &nbsp;·&nbsp; 3 closes in 14 months
+      <div class="row-line">
+        <span class="k">Yulia, same output</span>
+        <span class="v num">included</span>
       </div>
 
       <div class="gap-row">
-        <span class="k">Busted-deal cost &nbsp;·&nbsp; him vs cohort</span>
-        <span class="v-pair">
-          <span class="accent num">$12K</span>
-          <span class="vs">vs</span>
-          <span class="num">$85K</span>
-        </span>
+        <span class="k">Time leverage</span>
+        <span class="v num">80&times;</span>
+      </div>
+
+      <div class="caption">
+        Draft in 30 minutes. Broker review in 2. Same-day turnaround on new engagements.
       </div>
     </div>
 
@@ -451,38 +452,37 @@ S4 = wrap(f"""
 """, surface="imm")
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# SLIDE 5 — Close (light, dark CTA block)
+# S5 — Close · Talk to Yulia CTA
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 S5 = wrap(f"""
-    <div class="eyebrow-section">Velocity is the edge</div>
+    <div class="eyebrow-section">See it live</div>
 
     <h1 class="section" style="font-size:72px;">
-      Fast no on the <span class="num">85%</span>. Real time on the <span class="num">15%</span>.
+      Bring a real engagement. Watch Yulia write it.
     </h1>
 
     <p class="sub">
-      Everyone has the same brokered channels. The advantage is
-      <strong>velocity through the funnel</strong> &mdash; not access.
+      Paste your financials. Yulia drafts the CIM in <strong>30 minutes</strong>.
+      You review, edit, send. Same day.
     </p>
 
     <div class="cta-ring">
-      <div class="cta-eyebrow">Free &middot; 12 minutes</div>
-      <h2>Pre-screen any deal with Baseline&trade;.</h2>
+      <div class="cta-eyebrow">Free &middot; No account required</div>
+      <h2>Talk to Yulia.</h2>
       <span class="pill">
-        Start at smbx.ai <span class="arrow">&rsaquo;</span>
+        smbx.ai <span class="arrow">&rsaquo;</span>
       </span>
       <div class="reassure">
-        No account required &nbsp;·&nbsp; Your data stays yours
+        30-page PDF in your inbox &nbsp;·&nbsp; Your data stays yours
       </div>
     </div>
 
     {footer()}
 """, surface="light")
 
-# ── Render ──────────────────────────────────────
 slides = [S1, S2, S3, S4, S5]
 
-print(f"Rendering {len(slides)} slides ({MODE} mode) at {W}x{H} @ {DPR}x...")
+print(f"Rendering {len(slides)} slides ({MODE}) at {W}x{H} @ {DPR}x...")
 
 with sync_playwright() as p:
     browser = p.chromium.launch()
@@ -503,7 +503,7 @@ with sync_playwright() as p:
     browser.close()
 
 imgs = [Image.open(p).convert("RGB").resize((W, H), Image.LANCZOS) for p in pngs]
-pdf_path = OUT_DIR / f"MON-4-dealpros-closed3-{MODE}.pdf"
+pdf_path = OUT_DIR / f"MON-1-brokers-cim-MANetwork-{MODE}.pdf"
 imgs[0].save(str(pdf_path), "PDF", resolution=288.0, save_all=True, append_images=imgs[1:])
 
 for p in pngs:
