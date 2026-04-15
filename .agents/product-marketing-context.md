@@ -1,6 +1,8 @@
 # Product Marketing Context
 
-*Last updated: 2026-04-01*
+*Last updated: 2026-04-05*
+
+> **Strategic source of truth:** [`SMBX_90_DAY_EXECUTION_PLAN.md`](../SMBX_90_DAY_EXECUTION_PLAN.md) — 13-week calendar, content formula, stats arsenal, operations cadence. This file is foundational product/audience/voice context that every content skill reads before producing output. For strategy, phase, and per-week plan, read the execution plan.
 
 ## Product Overview
 **One-liner:** smbx.ai is an AI deal intelligence platform that guides business owners, buyers, and their advisors through every step of buying or selling a business.
@@ -18,34 +20,59 @@
 - **Blind Equity** -- Hidden value in a business's financials that the owner didn't know was there. The gap between what the tax return says and what the business actually earns.
 - **The Rundown** -- Complete deal intelligence package across 7 dimensions: industry structure, regional economics, financials, buyer landscape, deal architecture, risk assessment, forward signals.
 
-**Deployment:** Weeks 1-4 introduce casually without defining. Weeks 5-8 define with dedicated carousels/videos. Weeks 9+ normalize as established vocabulary.
+**Deployment per the 90-day plan:**
+- **Phase 1 — Seed (Weeks 1-3):** Open-loop usage. Blind Equity and The Rundown appear in Week 1, The Baseline joins in Week 2, all three in rotation by Week 3. Named but not fully defined. Readers ask in comments or visit the profile.
+- **Phase 2 — Soft Open (Weeks 4-5):** Terms defined in full, product named, Yulia enters stories.
+- **Phase 3+ (Weeks 6-13):** Normalized vocabulary. Used as the shorthand they became.
+
+**Emotional bridge mapping** (which persona each term speaks to):
+- **The Baseline™** → Reluctant Seller. *Relief + validation.* "After 20 years of sacrifice, here's what you actually built."
+- **Blind Equity™** → Future Seller. *Urgency + discovery.* "There's money hiding in your books right now."
+- **The Rundown™** → Buyer / Search Fund Operator. *Confidence + speed.* "Here's how to know before you commit $1.5M."
 
 ## Target Audience
-**Four audiences simultaneously:**
+**Five personas simultaneously.** Full profiles live in [`SMBX_90_DAY_EXECUTION_PLAN.md`](../SMBX_90_DAY_EXECUTION_PLAN.md#the-five-personas) — this section is the compact reference for content skills.
 
-### Audience 1: Business Owners Considering Selling
-- Built something over 20 years. Scared, uncertain, don't know where to start.
-- Want to know: What's my business worth? Am I leaving money on the table? Who can I trust?
-- Attracted to: specificity, empathy, real numbers, someone who's been through this before
-- Repelled by: jargon, corporate-speak, pressure, feeling stupid
+### Persona 1: The Reluctant Seller
+- 50-65, service business $500K-$5M. Thinking about selling for 1-3 years. Has done nothing.
+- **Unspoken fear:** "If I sell, who am I on Monday morning?"
+- **Aha moment:** Discovering Blind Equity — their business earns significantly more than the tax return shows.
+- **What success feels like:** Being told "you built something remarkable." Not the check — the validation.
+- **Branded term:** The Baseline (validation)
+- **Weekly slot:** Monday
 
-### Audience 2: Acquisition Entrepreneurs & Search Fund Operators
-- Saved $200K. Browsing BizBuySell every night. Terrified of buying a lemon.
-- Want to know: How do I evaluate a deal? How do I finance it? What kills deals?
-- Attracted to: frameworks, checklists, specific deal math, confidence
-- Repelled by: vague advice, "zero down" hype, guru energy
+### Persona 2: The Future Seller
+- Same demographics as Reluctant Seller, 2-5 years from exit. Knows they should prepare. Paralyzed by complexity.
+- **Unspoken fear:** "What if I find out it's not worth as much as I think?"
+- **Aha moment:** Every month of waiting destroys specific, calculable value.
+- **What success feels like:** Control of the timeline. From passenger to pilot.
+- **Branded term:** Blind Equity (urgency)
+- **Weekly slot:** Monday or Wednesday
 
-### Audience 3: M&A Advisors, Business Brokers, CPAs, Attorneys
-- Professionals who do this work. Don't need education -- need efficiency.
-- Want to know: Can this make me more productive? Will it embarrass me with clients?
-- Attracted to: respect for their expertise, tools that multiply their capacity, proof of quality
-- Repelled by: "we're replacing you" messaging, tools that feel like toys
+### Persona 3: The First-Time Buyer
+- 28-45, leaving corporate or post-MBA. Browsing BizBuySell. Read "Buy Then Build."
+- **Unspoken fear:** "What if I sign a $1.5M personal guarantee and my family loses everything?"
+- **Aha moment:** There's a way to screen deals in minutes that would have taken months — and most of what they're looking at should be dead already.
+- **What success feels like:** Monday morning ownership. Agency. Escape from corporate.
+- **Branded term:** The Rundown (confidence)
+- **Weekly slot:** Tuesday and Thursday
 
-### Audience 4: First-Time Buyers & Career Changers
-- Heard about "buying a business" from Codie Sanchez or a podcast. Curious but know nothing.
-- Want to know: Is this real? Can I actually do this? Where do I start?
-- Attracted to: accessibility, "I'll walk you through it" energy, relatable founder stories
-- Repelled by: intimidation, gatekeeping, "$5M to play" messaging
+### Persona 4: The Search Fund Operator
+- Has capital, has a thesis, actively searching. Burning $8K/month. Investors getting impatient.
+- **Unspoken fear:** "What if I'm the 37% who never close — and I have to tell my investors I failed?"
+- **Aha moment:** The funnel is the problem, not the searcher. Speed to conviction is the only lever.
+- **What success feels like:** Vindication. Proof the leap was worth it.
+- **Branded term:** The Rundown (speed)
+- **Weekly slot:** Friday
+
+### Persona 5: The Broker
+- 5-15 deals/year, sub-$10M. Commission-only. Tech stack held together with duct tape.
+- **Unspoken fear:** "Am I becoming obsolete?"
+- **Aha moment:** AI eliminates the 80% of work that has nothing to do with their actual expertise.
+- **What success feels like:** 80% advisory, 20% admin — instead of the reverse.
+- **Branded term:** The Baseline + Blind Equity (pre-qualified sellers)
+- **Weekly slot:** Friday
+- **Critical:** Brokers are CUSTOMERS, not competitors. Never anti-broker language.
 
 ## The Founder
 **Paul Baker** -- 20+ years in M&A, $X billion+ in completed transactions, X+ deals closed. Practitioner-turned-builder who designed and built the platform, the AI methodology, and the product. Solo founder. Not a tech entrepreneur -- an M&A veteran who built the tool he wished existed. Think: the veteran surgeon who designs a better surgical tool.
@@ -148,14 +175,22 @@
 **Personality:** Practitioner (not marketer), Builder (not pontificator), Human (talks about fear, uncertainty, mistakes), Confident (but not arrogant), Specific (deals in real numbers)
 
 ## Visual Identity
-- **Logo:** 3D gradient X mark (Purple #6B2FA0 -> Pink #D44A78 -> Gold #F0A030) + "smbx.ai" wordmark
-- **Primary accent:** #D44A78 -- functional only (buttons, data highlights, labels), never decorative
-- **Backgrounds:** #F9F9FC (light), #1A1C1E (dark), #FAF8F4 (cream for callouts)
-- **Text:** #1A1A18 (primary), #44403C (secondary), #6E6A63 (muted)
-- **Fonts:** Sora 800 (headlines), Inter 400-600 (body)
-- **Texture:** Dot grid on backgrounds, circuit board on hero sections only
+
+**Aesthetic:** Flat ink-on-paper document. Grok-minimal + Mercury/Ramp warmth + boutique M&A memo. Every asset reads as a page from a published "Field Note."
+
+**Full spec:** [`STYLE_GUIDE.md`](../STYLE_GUIDE.md) (tokens, typography, components) + [`.impeccable.md`](../.impeccable.md) (taste layer, design principles).
+
+**Quick reference:**
+- **Logo:** `G3L.png` (light mode, flat black wordmark) or `G3D.png` (dark mode, flat white wordmark). Never the deprecated 3D gradient variants.
+- **Primary accent:** `#D44A78` (light) / `#E8709A` (dark) — functional only, ONE non-structural use per surface.
+- **Backgrounds:** `#F8F6F2` (warm cream) / `#151617` (warm charcoal). No gradients, no circuit boards, no dot grids — all deprecated.
+- **Texture:** Film grain only, via SVG fractal noise at 6-8% opacity.
+- **Text:** `#1A1C1E` primary ink (light) / `#F0F0F3` (dark); `#5D5E61` muted (light).
+- **Fonts:** Sora 800 (display) + Inter 400-700 (body). Never mix other fonts.
+- **Tabular-nums on every numeral** via `.num` class.
+- **Carousel:** 1080×1350 portrait, 6-10 slides, PDF via Pillow.
+- **Single image post:** 1080×1080 square, PNG.
 - **No stock photos. Ever.**
-- **Carousel spec:** 1080x1350 portrait, 10 slides, exported as PDF for LinkedIn
 
 ## Proof Points
 **Key metrics:**
@@ -175,19 +210,23 @@
 | Real numbers | "Your SDE is $380K. Here's the math." -- Yulia gives specifics |
 
 ## Goals
-**Business goal:** Build LinkedIn presence from ~300 to 1,000+ connections over 12 weeks. Establish Paul Baker as a credible M&A voice. Drive free conversations with Yulia at smbx.ai.
+**Business goal:** Build LinkedIn presence from ~300 to 1,000+ connections over 90 days. Establish Paul Baker as a credible M&A voice. Drive free conversations with Yulia at smbx.ai.
 
-**Conversion action:** Visit smbx.ai and talk to Yulia (no signup required)
+**North Star Metric:** Yulia conversations started per post. Not impressions, likes, or profile views. Someone left LinkedIn, typed into Yulia's chat, and got real analysis.
 
-**Current metrics:** ~300 LinkedIn connections, 0 newsletter subscribers (launching Week 5)
+**Conversion action:** Visit smbx.ai and talk to Yulia (no signup required).
+
+**Current metrics:** ~300 LinkedIn connections, 0 newsletter subscribers (launches Week 5).
 
 ## Current Campaign Phase
-**Weeks 1-4 (Seed Phase):** Group-first posting (240K+ member PE/M&A group, 314K Small Business Network, 372K Executive Suite, etc.) + 20 connection requests/day. Establish expertise. Zero product mentions in Week 1, casual branded term usage in Weeks 2-3, product tease in Week 4.
+**Phase 1 — Seed (Weeks 1-3):** Zero product mentions. Earn the right to be heard. 100% pure value content (Open Loop campaign). Deploy Blind Equity and The Rundown as open loops. Grow from ~300 to 420+ connections. Target 5-10 organic Yulia conversations from profile clicks. No links anywhere — not even first comments.
+
+See [`SMBX_90_DAY_EXECUTION_PLAN.md`](../SMBX_90_DAY_EXECUTION_PLAN.md) for the full 5-phase structure: Seed (1-3) → Soft Open (4-5) → Founding Push (6-8) → Launch (9-10) → Flywheel (11-13).
 
 ## Creative Tools
 | Tool | Cost | Purpose |
 |------|------|---------|
-| HeyGen Creator | $29/mo | AI avatar videos (Paul's digital twin + voice clone) |
-| Google AI Studio | Free | Image generation for posts |
-| Canva | $0-13/mo | Carousel PDFs, banners, visual assets |
+| Playwright (Python) | Free | Production render pipeline for single posts + carousels at 2× DPR (288 DPI). Reference impls in `content/week-01/`. |
+| HeyGen Creator | $29/mo | AI avatar videos (Paul's digital twin + voice clone). 60-90 sec, 1-2 per week max. |
+| Canva | $0-13/mo | Backup/exploration for non-pipeline assets |
 | Buffer | Free | Post scheduling |
