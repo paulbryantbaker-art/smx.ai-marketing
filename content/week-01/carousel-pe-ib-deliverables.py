@@ -3,11 +3,7 @@
 smbx.ai LinkedIn Carousel — Monday Week 1, Post 3
 "IB Deliverable List" — PE / Funds · SuperCFO Group (262K)
 
-Source: SMBX_90_DAY_PLAN.xlsx, Week 1 Monday, Row 3
-Hook: "Here's every deliverable from a $30M sell-side IB engagement.
-Yulia produces all of them. The 10% she doesn't? You pick up the phone."
-Deal size: $6M EBITDA · Pillar: P1 Yulia Does the Work · CTA: Talk to Yulia
-
+Source: SMBX_90_DAY_PLAN.xlsx (per-slide content from xlsx columns).
 Field Note No. 24. Canon per DESIGN_LANGUAGE.md.
 """
 
@@ -23,7 +19,6 @@ MODE = sys.argv[1].lower() if len(sys.argv) > 1 else "light"; assert MODE in ("l
 
 YEAR_WEEK = "2026 · Week 01"
 NOTE_NO   = "No. 24"
-GROUP     = "SuperCFO Group (262K)"
 
 TOKENS = {
     "light": {"bg":"#F9F9FC","ink":"#0f1012","body":"#3c3d40","muted":"#6e6a63","accent":"#D44A78","tint":"rgba(212,74,120,0.08)","border":"rgba(15,16,18,0.08)","border_soft":"rgba(15,16,18,0.06)","card_bg":"#ffffff","logo_file":"G3L.png"},
@@ -59,22 +54,11 @@ body { width:1080px; height:1350px; overflow:hidden; font-family:'Inter', system
 .eyebrow-section { font-family:'Inter'; font-size:28px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:__accent__; }
 .canvas.imm .eyebrow-section { color:__imm_accent__; }
 
-h1.hook { font-family:'Sora'; font-weight:800; line-height:0.94; letter-spacing:-0.04em; color:__ink__; margin-top:21px; }
-.canvas.imm h1.hook { color:__imm_ink__; }
+h1.hook { font-family:'Sora'; font-weight:800; line-height:0.98; letter-spacing:-0.04em; color:__ink__; margin-top:21px; }
 h1.section { font-family:'Sora'; font-weight:800; line-height:1.0; letter-spacing:-0.03em; color:__ink__; margin-top:21px; }
 .canvas.imm h1.section { color:__imm_ink__; }
-p.sub { font-family:'Inter'; font-weight:400; font-size:34px; line-height:1.45; color:__body__; margin-top:34px; max-width:920px; }
+p.sub { font-family:'Inter'; font-weight:400; font-size:30px; line-height:1.4; color:__body__; margin-top:34px; max-width:920px; }
 p.sub strong { color:__ink__; font-weight:600; }
-
-.mega-compare { margin-top:55px; border-top:1px solid __border__; border-bottom:1px solid __border__; padding:21px 0; }
-.mega-row { display:flex; justify-content:space-between; align-items:baseline; padding:13px 0; }
-.mega-row .label { font-family:'Inter'; font-size:30px; font-weight:500; color:__muted__; }
-.mega-row .val { font-family:'Sora'; font-weight:800; font-size:64px; letter-spacing:-0.04em; color:__ink__; }
-.mega-row .val.muted { color:__muted__; font-size:55px; }
-.mega-row .val.accent { color:__accent__; }
-.mega-gap { display:flex; justify-content:space-between; align-items:baseline; margin-top:13px; padding:21px 0 0 0; border-top:3px solid __accent__; }
-.mega-gap .label { font-family:'Inter'; font-size:24px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:__accent__; }
-.mega-gap .val { font-family:'Sora'; font-weight:800; font-size:89px; letter-spacing:-0.045em; color:__accent__; }
 
 .cover-byline { margin-top:55px; display:flex; align-items:center; gap:21px; }
 .cover-byline .portrait { width:89px; height:89px; border-radius:50%; object-fit:cover; object-position:center; border:2px solid __border__; }
@@ -93,36 +77,51 @@ p.sub strong { color:__ink__; font-weight:600; }
 .attr-imm .mark { height:34px; object-fit:contain; }
 .attr-imm .meta { font-family:'Inter'; font-size:22px; font-weight:500; color:rgba(255,255,255,0.7); }
 
-.kv-card-dark { background:#0f1012; border-radius:14px; padding:21px 34px 13px 34px; margin-top:55px; box-shadow: 0 21px 55px -34px rgba(15,16,18,0.45); }
-.kv-card-dark .row { display:flex; justify-content:space-between; align-items:baseline; padding:18px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
+/* Deliverable list (dark KV with role tag on right) */
+.kv-card-dark { background:#0f1012; border-radius:14px; padding:18px 34px 8px 34px; margin-top:34px; box-shadow: 0 21px 55px -34px rgba(15,16,18,0.45); }
+.kv-card-dark .row { display:flex; justify-content:space-between; align-items:baseline; padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
 .kv-card-dark .row:last-child { border-bottom:none; }
-.kv-card-dark .row .k { font-family:'Inter'; font-size:26px; font-weight:600; color:rgba(255,255,255,0.55); }
-.kv-card-dark .row .v { font-family:'Sora'; font-weight:800; font-size:30px; letter-spacing:-0.02em; color:#f9f9fc; }
-.kv-card-dark .row .v.accent { color:__accent__; }
-.kv-card-dark .row .v.yulia { color:__accent__; text-transform:uppercase; font-size:28px; letter-spacing:0.04em; }
+.kv-card-dark .row.divider { border-top:1.5px solid rgba(232,112,154,0.5); margin-top:8px; padding-top:18px; }
+.kv-card-dark .row .k { font-family:'Inter'; font-size:24px; font-weight:600; color:#f9f9fc; }
+.kv-card-dark .row .v { font-family:'Inter'; font-size:18px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; }
+.kv-card-dark .row .v.yulia { color:__accent__; }
+.kv-card-dark .row .v.you { color:#f9f9fc; }
 
-.kv-card { background:__card_bg__; border:1px solid __border__; border-radius:14px; padding:21px 34px 13px 34px; margin-top:55px; }
-.kv-card .row { display:flex; justify-content:space-between; align-items:baseline; padding:18px 0; border-bottom:1px solid __border_soft__; }
-.kv-card .row:last-child { border-bottom:none; }
-.kv-card .row .k { font-family:'Inter'; font-size:26px; font-weight:600; color:__muted__; }
-.kv-card .row .v { font-family:'Sora'; font-weight:800; font-size:30px; letter-spacing:-0.02em; color:__ink__; }
-.kv-card .row .v.accent { color:__accent__; }
+/* Production / Judgment role card (S3) */
+.role-card-2 { background:__card_bg__; border:1px solid __border__; border-radius:14px; padding:34px 38px 28px 38px; margin-top:34px; }
+.role-card-2 .roles { display:grid; grid-template-columns:1fr 1fr; gap:34px; }
+.role-card-2 .role-block { }
+.role-card-2 .role-label { font-family:'Inter'; font-size:18px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:__muted__; padding-bottom:13px; border-bottom:1px solid __border__; }
+.role-card-2 .role-block.you .role-label { color:__accent__; }
+.role-card-2 .role-who { font-family:'Sora'; font-weight:800; font-size:28px; color:__ink__; margin-top:21px; line-height:1.2; letter-spacing:-0.02em; }
+.role-card-2 .role-eq { font-family:'Inter'; font-size:22px; font-weight:500; color:__muted__; margin-top:8px; line-height:1.35; }
+.role-card-2 .role-eq strong { color:__ink__; font-weight:600; }
+.role-card-2 .role-block.you .role-eq strong { color:__accent__; }
 
-.light-card { margin-top:55px; background:#ffffff; border:1px solid rgba(15,16,18,0.08); border-radius:21px; padding:55px 55px 34px 55px; box-shadow: 0 34px 89px -34px rgba(0,0,0,0.55); color:#0f1012; }
-.light-card .anchor-eyebrow { font-family:'Inter'; font-size:28px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:#D44A78; }
-.light-card .row-line { display:flex; justify-content:space-between; align-items:baseline; padding:14px 0; border-bottom:1px solid rgba(15,16,18,0.06); }
-.light-card .row-line:first-of-type { margin-top:21px; }
-.light-card .row-line .k { font-family:'Inter'; font-size:28px; font-weight:500; color:#0f1012; }
-.light-card .row-line .v { font-family:'Sora'; font-weight:800; font-size:32px; letter-spacing:-0.02em; color:#D44A78; text-transform:uppercase; letter-spacing:0.04em; }
-.light-card .punchline { margin-top:28px; padding-top:28px; border-top:3px solid #D44A78; font-family:'Sora'; font-weight:800; font-size:42px; line-height:1.15; letter-spacing:-0.02em; color:#0f1012; }
-.light-card .punchline em { color:#D44A78; font-style:normal; }
+.caption-quote { margin-top:34px; padding-left:21px; border-left:3px solid __accent__; font-family:'Inter'; font-size:24px; font-weight:500; line-height:1.4; color:__body__; font-style:italic; }
 
-.cta-ring { margin-top:55px; background:#0f1012; border:1px solid rgba(212,74,120,0.55); border-radius:21px; padding:55px 48px 48px 48px; box-shadow: inset 0 0 0 1px rgba(212,74,120,0.18), 0 34px 55px -34px rgba(15,16,18,0.45); }
-.cta-ring .cta-eyebrow { font-family:'Inter'; font-size:28px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:#E8709A; }
-.cta-ring h2 { font-family:'Sora'; font-weight:800; font-size:55px; line-height:1.04; letter-spacing:-0.03em; color:#f9f9fc; margin-top:21px; }
-.cta-ring .pill { display:inline-flex; align-items:center; gap:13px; margin-top:34px; padding:21px 34px; background:#E8709A; color:#0f1012; border-radius:999px; font-family:'Inter'; font-size:26px; font-weight:700; letter-spacing:0.02em; }
+/* Cost comparison cinematic anchor */
+.cost-card { margin-top:34px; background:#ffffff; border:1px solid rgba(15,16,18,0.08); border-radius:21px; padding:48px 48px 42px 48px; box-shadow: 0 34px 89px -34px rgba(0,0,0,0.55); color:#0f1012; }
+.cost-card .anchor-eyebrow { font-family:'Inter'; font-size:24px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:#D44A78; }
+.cost-card .cost-row { display:flex; justify-content:space-between; align-items:baseline; padding:21px 0; border-bottom:1px solid rgba(15,16,18,0.06); }
+.cost-card .cost-row:first-of-type { margin-top:21px; }
+.cost-card .cost-row.last { border-bottom:none; padding-bottom:0; }
+.cost-card .cost-row .label { }
+.cost-card .cost-row .label .name { font-family:'Sora'; font-weight:800; font-size:24px; color:#0f1012; letter-spacing:-0.02em; }
+.cost-card .cost-row .label .calc { font-family:'Inter'; font-size:18px; font-weight:500; color:#6e6a63; margin-top:4px; }
+.cost-card .cost-row .price { font-family:'Sora'; font-weight:800; font-size:48px; letter-spacing:-0.03em; color:#3c3d40; }
+.cost-card .cost-row.accent .price { color:#D44A78; font-size:64px; }
+.cost-card .punchline { margin-top:21px; padding-top:21px; border-top:3px solid #D44A78; font-family:'Sora'; font-weight:800; font-size:32px; line-height:1.18; letter-spacing:-0.02em; color:#0f1012; }
+.cost-card .punchline em { color:#D44A78; font-style:normal; }
+
+.anchor-caption { margin-top:21px; font-family:'Inter'; font-size:22px; font-weight:500; color:rgba(255,255,255,0.7); line-height:1.4; padding-left:21px; border-left:2px solid __imm_accent__; font-style:italic; }
+
+.cta-ring { margin-top:34px; background:#0f1012; border:1px solid rgba(212,74,120,0.55); border-radius:21px; padding:48px 48px 42px 48px; box-shadow: inset 0 0 0 1px rgba(212,74,120,0.18), 0 34px 55px -34px rgba(15,16,18,0.45); }
+.cta-ring .cta-eyebrow { font-family:'Inter'; font-size:24px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:#E8709A; }
+.cta-ring h2 { font-family:'Sora'; font-weight:800; font-size:44px; line-height:1.04; letter-spacing:-0.03em; color:#f9f9fc; margin-top:13px; }
+.cta-ring .pill { display:inline-flex; align-items:center; gap:13px; margin-top:34px; padding:18px 34px; background:#E8709A; color:#0f1012; border-radius:999px; font-family:'Inter'; font-size:26px; font-weight:700; letter-spacing:0.02em; }
 .cta-ring .pill .arrow { font-family:'Sora'; font-weight:700; }
-.cta-ring .reassure { font-family:'Inter'; font-size:24px; font-weight:400; color:rgba(255,255,255,0.55); margin-top:21px; }
+.cta-ring .reassure { font-family:'Inter'; font-size:22px; font-weight:400; color:rgba(255,255,255,0.55); margin-top:21px; }
 """
 
 for k, v in TOK.items(): CSS = CSS.replace(f"__{k}__", v)
@@ -146,27 +145,17 @@ S1 = wrap(f"""
 
     <div class="eyebrow-hook">
       <span class="dot"></span>
-      <span>PE / Funds &nbsp;·&nbsp; Sell-side &nbsp;·&nbsp; IB stack</span>
+      <span>PE / Funds &nbsp;·&nbsp; $30M sell-side &nbsp;·&nbsp; IB stack</span>
     </div>
 
-    <h1 class="hook" style="font-size:88px;">
-      90% Yulia. 10% you.
+    <h1 class="hook" style="font-size:68px;">
+      Yulia produces all of it.
     </h1>
 
-    <div class="mega-compare">
-      <div class="mega-row">
-        <span class="label">Total IB deliverables</span>
-        <span class="val muted num">14</span>
-      </div>
-      <div class="mega-row">
-        <span class="label">Yulia produces</span>
-        <span class="val accent num">13</span>
-      </div>
-      <div class="mega-gap">
-        <span class="label">What&rsquo;s still yours</span>
-        <span class="val num">The phone</span>
-      </div>
-    </div>
+    <p class="sub">
+      Every deliverable a boutique IB ships on a $30M sell-side.
+      <strong>The 10% she doesn&rsquo;t?</strong> You pick up the phone.
+    </p>
 
     <div class="cover-byline">
       <img src="data:image/jpeg;base64,{HEADSHOT}" class="portrait">
@@ -181,102 +170,118 @@ S1 = wrap(f"""
     </div>
 """, surface="light")
 
-# S2 — The full IB deliverable list (dark KV card)
+# S2 — The deliverable list (dark KV card with role tag)
 S2 = wrap(f"""
-    <div class="eyebrow-section">The full sell-side stack</div>
+    <div class="eyebrow-section">The deliverable list</div>
 
-    <h1 class="section" style="font-size:56px;">
-      Every deliverable on a $30M engagement.
+    <h1 class="section" style="font-size:48px;">
+      Eleven by Yulia. Three by you.
     </h1>
 
     <div class="kv-card-dark">
-      <div class="row"><span class="k">Teaser</span><span class="v yulia">Yulia</span></div>
-      <div class="row"><span class="k">CIM</span><span class="v yulia">Yulia</span></div>
-      <div class="row"><span class="k">Buyer list + scoring</span><span class="v yulia">Yulia</span></div>
-      <div class="row"><span class="k">Management presentation</span><span class="v yulia">Yulia</span></div>
-      <div class="row"><span class="k">Financial model (3-scenario)</span><span class="v yulia">Yulia</span></div>
-      <div class="row"><span class="k">Data room structure</span><span class="v yulia">Yulia</span></div>
-      <div class="row"><span class="k">IOI / LOI frameworks</span><span class="v yulia">Yulia</span></div>
+      <div class="row"><span class="k">Valuation report</span><span class="v yulia">Yulia</span></div>
+      <div class="row"><span class="k">CIM, 25&ndash;40 pages</span><span class="v yulia">Yulia</span></div>
+      <div class="row"><span class="k">Financial model + sensitivity</span><span class="v yulia">Yulia</span></div>
+      <div class="row"><span class="k">Blind teaser</span><span class="v yulia">Yulia</span></div>
+      <div class="row"><span class="k">Buyer universe + outreach</span><span class="v yulia">Yulia</span></div>
+      <div class="row"><span class="k">NDA + IOI/LOI management</span><span class="v yulia">Yulia</span></div>
+      <div class="row"><span class="k">DD checklist + working capital</span><span class="v yulia">Yulia</span></div>
+      <div class="row"><span class="k">Closing checklist</span><span class="v yulia">Yulia</span></div>
+      <div class="row divider"><span class="k">Negotiate</span><span class="v you">You</span></div>
+      <div class="row"><span class="k">Relationships</span><span class="v you">You</span></div>
+      <div class="row"><span class="k">Judgment</span><span class="v you">You</span></div>
     </div>
 
     {footer()}
 """, surface="light")
 
-# S3 — More deliverables + the one that isn't (bordered card)
+# S3 — IB = production + judgment
 S3 = wrap(f"""
-    <div class="eyebrow-section">The stack, continued</div>
+    <div class="eyebrow-section">An IB is production + judgment</div>
 
-    <h1 class="section" style="font-size:60px;">
-      Six more. Then the one that isn&rsquo;t.
+    <h1 class="section" style="font-size:56px;">
+      Yulia replaces the production team.
     </h1>
 
-    <div class="kv-card">
-      <div class="row"><span class="k">Buyer outreach scripts</span><span class="v accent">Yulia</span></div>
-      <div class="row"><span class="k">Q&amp;A log management</span><span class="v accent">Yulia</span></div>
-      <div class="row"><span class="k">DD support memos</span><span class="v accent">Yulia</span></div>
-      <div class="row"><span class="k">Working group list</span><span class="v accent">Yulia</span></div>
-      <div class="row"><span class="k">Closing book</span><span class="v accent">Yulia</span></div>
-      <div class="row"><span class="k">Post-close integration brief</span><span class="v accent">Yulia</span></div>
-      <div class="row"><span class="k">Final buyer handshake</span><span class="v">You</span></div>
+    <div class="role-card-2">
+      <div class="roles">
+        <div class="role-block">
+          <div class="role-label">Production</div>
+          <div class="role-who">Analysts, Associates, VPs</div>
+          <div class="role-eq">Yulia <strong>replaces</strong> this.</div>
+        </div>
+        <div class="role-block you">
+          <div class="role-label">Judgment</div>
+          <div class="role-who">Managing Director</div>
+          <div class="role-eq">Your judgment is <strong>irreplaceable</strong>.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="caption-quote">
+      &ldquo;Your analyst&rsquo;s hours are not. Your judgment is.&rdquo;
     </div>
 
     {footer()}
 """, surface="light")
 
-# S4 — Cinematic anchor: the one thing that's still yours
+# S4 — Cost comparison cinematic anchor
 S4 = wrap(f"""
-    <div class="eyebrow-section">The 10% that&rsquo;s still yours</div>
+    <div class="eyebrow-section">Cost comparison &middot; $30M deal</div>
 
     <h1 class="section" style="font-size:60px;">
-      The part the machine can&rsquo;t do.
+      Same deliverables. <span class="num">756&times;</span> the price.
     </h1>
 
-    <div class="light-card">
-      <div class="anchor-eyebrow">What the phone still earns</div>
+    <div class="cost-card">
+      <div class="anchor-eyebrow">All-in fees per engagement</div>
 
-      <div class="row-line">
-        <span class="k">Buyer relationships</span>
-        <span class="v">You</span>
+      <div class="cost-row">
+        <div class="label">
+          <div class="name">Boutique IB</div>
+          <div class="calc">$150K retainer + 4% success fee on $30M</div>
+        </div>
+        <div class="price num">$1.35M</div>
       </div>
-      <div class="row-line">
-        <span class="k">Negotiation posture</span>
-        <span class="v">You</span>
-      </div>
-      <div class="row-line">
-        <span class="k">Final handshake</span>
-        <span class="v">You</span>
+
+      <div class="cost-row accent last">
+        <div class="label">
+          <div class="name">Yulia</div>
+          <div class="calc">$149/mo &times; 12 months</div>
+        </div>
+        <div class="price num">$1,788</div>
       </div>
 
       <div class="punchline">
-        Your fee lives where <em>Yulia can&rsquo;t</em>.
+        Same quality. <em>Subscription pricing.</em>
       </div>
+    </div>
+
+    <div class="anchor-caption">
+      &ldquo;Not a toy. Institutional quality at subscription pricing.&rdquo;
     </div>
 
     {attr_imm()}
 """, surface="imm")
 
-# S5 — CTA
+# S5 — Pricing close
 S5 = wrap(f"""
-    <div class="eyebrow-section">See it live</div>
+    <div class="eyebrow-section">Pricing</div>
 
-    <h1 class="section" style="font-size:72px;">
-      Bring a real mandate. Watch Yulia draft the stack.
+    <h1 class="section" style="font-size:84px;">
+      $149 a month.
     </h1>
 
     <p class="sub">
-      Paste the target. Yulia returns the <strong>teaser, CIM, model,
-      and buyer list</strong> before your next call. You keep the phone.
+      For the production. <strong>Your expertise for the judgment.</strong>
+      Your client gets both.
     </p>
 
     <div class="cta-ring">
-      <div class="cta-eyebrow">Free &middot; No account required</div>
+      <div class="cta-eyebrow">Same deliverables &middot; Same quality</div>
       <h2>Talk to Yulia.</h2>
-      <span class="pill">
-        smbx.ai <span class="arrow">&rsaquo;</span>
-      </span>
-      <div class="reassure">
-        Full sell-side draft pack &nbsp;·&nbsp; Your data stays yours
-      </div>
+      <span class="pill">smbx.ai <span class="arrow">&rsaquo;</span></span>
+      <div class="reassure">Free &middot; No account required &middot; Your data stays yours</div>
     </div>
 
     {footer()}

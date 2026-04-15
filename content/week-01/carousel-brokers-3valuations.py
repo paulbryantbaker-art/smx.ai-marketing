@@ -3,11 +3,7 @@
 smbx.ai LinkedIn Carousel — Monday Week 1, Post 2
 "3 Valuations Before Lunch" — Brokers · Dealflow Network (152K)
 
-Source: SMBX_90_DAY_PLAN.xlsx, Week 1 Monday, Row 2
-Hook: "3 client valuations before lunch. Multi-methodology. Documented add-backs.
-Used to take 3 weeks."
-Deal size: $5M-$15M EBITDA · Pillar: P2 Real Math · CTA: Talk to Yulia. smbx.ai
-
+Source: SMBX_90_DAY_PLAN.xlsx (per-slide content from xlsx columns).
 Field Note No. 18. Canon per DESIGN_LANGUAGE.md.
 """
 
@@ -16,44 +12,27 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 from PIL import Image
 
-W, H = 1080, 1350
-DPR = 2
+W, H = 1080, 1350; DPR = 2
 REPO = Path(__file__).resolve().parent.parent.parent
 OUT_DIR = REPO / "content" / "week-01"
-
-MODE = sys.argv[1].lower() if len(sys.argv) > 1 else "light"
-assert MODE in ("light", "dark")
+MODE = sys.argv[1].lower() if len(sys.argv) > 1 else "light"; assert MODE in ("light", "dark")
 
 YEAR_WEEK = "2026 · Week 01"
 NOTE_NO   = "No. 18"
-GROUP     = "Dealflow Network (152K)"
 
 TOKENS = {
-    "light": {
-        "bg":"#F9F9FC", "ink":"#0f1012", "body":"#3c3d40", "muted":"#6e6a63",
-        "accent":"#D44A78", "tint":"rgba(212,74,120,0.08)",
-        "border":"rgba(15,16,18,0.08)", "border_soft":"rgba(15,16,18,0.06)",
-        "card_bg":"#ffffff", "logo_file":"G3L.png",
-    },
-    "dark": {
-        "bg":"#1A1C1E", "ink":"#f9f9fc", "body":"rgba(218,218,220,0.85)", "muted":"rgba(218,218,220,0.55)",
-        "accent":"#E8709A", "tint":"rgba(232,112,154,0.10)",
-        "border":"rgba(255,255,255,0.08)", "border_soft":"rgba(255,255,255,0.06)",
-        "card_bg":"#1a1c1e", "logo_file":"G3D.png",
-    },
+    "light": {"bg":"#F9F9FC","ink":"#0f1012","body":"#3c3d40","muted":"#6e6a63","accent":"#D44A78","tint":"rgba(212,74,120,0.08)","border":"rgba(15,16,18,0.08)","border_soft":"rgba(15,16,18,0.06)","card_bg":"#ffffff","logo_file":"G3L.png"},
+    "dark":  {"bg":"#1A1C1E","ink":"#f9f9fc","body":"rgba(218,218,220,0.85)","muted":"rgba(218,218,220,0.55)","accent":"#E8709A","tint":"rgba(232,112,154,0.10)","border":"rgba(255,255,255,0.08)","border_soft":"rgba(255,255,255,0.06)","card_bg":"#1a1c1e","logo_file":"G3D.png"},
 }
 TOK = TOKENS[MODE]
-IMM = {
-    "bg":"#0f1012", "ink":"#f9f9fc", "muted":"rgba(255,255,255,0.55)",
-    "body":"rgba(255,255,255,0.78)", "accent": TOK["accent"], "border":"rgba(255,255,255,0.10)",
-}
+IMM = {"bg":"#0f1012","ink":"#f9f9fc","muted":"rgba(255,255,255,0.55)","body":"rgba(255,255,255,0.78)","accent":TOK["accent"],"border":"rgba(255,255,255,0.10)"}
 
 def b64(p):
     with open(p, "rb") as f: return base64.b64encode(f.read()).decode()
 
-LOGO_DARK_BG  = b64(REPO / "assets" / "logos" / "G3D.png")
-LOGO_DECK     = b64(REPO / "assets" / "logos" / TOK["logo_file"])
-HEADSHOT      = b64(REPO / "assets" / "portrait-square.jpeg")
+LOGO_DARK_BG = b64(REPO / "assets" / "logos" / "G3D.png")
+LOGO_DECK    = b64(REPO / "assets" / "logos" / TOK["logo_file"])
+HEADSHOT     = b64(REPO / "assets" / "portrait-square.jpeg")
 
 CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
@@ -75,22 +54,11 @@ body { width:1080px; height:1350px; overflow:hidden; font-family:'Inter', system
 .eyebrow-section { font-family:'Inter'; font-size:28px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:__accent__; }
 .canvas.imm .eyebrow-section { color:__imm_accent__; }
 
-h1.hook { font-family:'Sora'; font-weight:800; line-height:0.94; letter-spacing:-0.04em; color:__ink__; margin-top:21px; }
-.canvas.imm h1.hook { color:__imm_ink__; }
+h1.hook { font-family:'Sora'; font-weight:800; line-height:0.98; letter-spacing:-0.04em; color:__ink__; margin-top:21px; }
 h1.section { font-family:'Sora'; font-weight:800; line-height:1.0; letter-spacing:-0.03em; color:__ink__; margin-top:21px; }
 .canvas.imm h1.section { color:__imm_ink__; }
-p.sub { font-family:'Inter'; font-weight:400; font-size:34px; line-height:1.45; color:__body__; margin-top:34px; max-width:920px; }
+p.sub { font-family:'Inter'; font-weight:400; font-size:30px; line-height:1.4; color:__body__; margin-top:34px; max-width:920px; }
 p.sub strong { color:__ink__; font-weight:600; }
-
-.mega-compare { margin-top:55px; border-top:1px solid __border__; border-bottom:1px solid __border__; padding:21px 0; }
-.mega-row { display:flex; justify-content:space-between; align-items:baseline; padding:13px 0; }
-.mega-row .label { font-family:'Inter'; font-size:30px; font-weight:500; color:__muted__; }
-.mega-row .val { font-family:'Sora'; font-weight:800; font-size:64px; letter-spacing:-0.04em; color:__ink__; }
-.mega-row .val.muted { color:__muted__; font-size:55px; }
-.mega-row .val.accent { color:__accent__; }
-.mega-gap { display:flex; justify-content:space-between; align-items:baseline; margin-top:13px; padding:21px 0 0 0; border-top:3px solid __accent__; }
-.mega-gap .label { font-family:'Inter'; font-size:24px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:__accent__; }
-.mega-gap .val { font-family:'Sora'; font-weight:800; font-size:89px; letter-spacing:-0.045em; color:__accent__; }
 
 .cover-byline { margin-top:55px; display:flex; align-items:center; gap:21px; }
 .cover-byline .portrait { width:89px; height:89px; border-radius:50%; object-fit:cover; object-position:center; border:2px solid __border__; }
@@ -109,55 +77,62 @@ p.sub strong { color:__ink__; font-weight:600; }
 .attr-imm .mark { height:34px; object-fit:contain; }
 .attr-imm .meta { font-family:'Inter'; font-size:22px; font-weight:500; color:rgba(255,255,255,0.7); }
 
-.kv-card-dark { background:#0f1012; border-radius:14px; padding:21px 34px 13px 34px; margin-top:55px; box-shadow: 0 21px 55px -34px rgba(15,16,18,0.45); }
-.kv-card-dark .row { display:flex; justify-content:space-between; align-items:baseline; padding:21px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
-.kv-card-dark .row:last-child { border-bottom:none; }
-.kv-card-dark .row .k { font-family:'Inter'; font-size:28px; font-weight:600; color:rgba(255,255,255,0.55); }
-.kv-card-dark .row .v { font-family:'Sora'; font-weight:800; font-size:34px; letter-spacing:-0.02em; color:#f9f9fc; }
-.kv-card-dark .row .v.accent { color:__accent__; }
+.list-card-dark { background:#0f1012; border-radius:14px; padding:13px 34px 8px 34px; margin-top:34px; box-shadow: 0 21px 55px -34px rgba(15,16,18,0.45); }
+.list-card-dark .row { padding:18px 0; border-bottom:1px solid rgba(255,255,255,0.08); font-family:'Inter'; font-size:28px; font-weight:600; color:#f9f9fc; }
+.list-card-dark .row:last-child { border-bottom:none; }
 
-.kv-card { background:__card_bg__; border:1px solid __border__; border-radius:14px; padding:21px 34px 13px 34px; margin-top:55px; }
-.kv-card .row { display:flex; justify-content:space-between; align-items:baseline; padding:21px 0; border-bottom:1px solid __border_soft__; }
-.kv-card .row:last-child { border-bottom:none; }
-.kv-card .row .k { font-family:'Inter'; font-size:28px; font-weight:600; color:__muted__; }
-.kv-card .row .v { font-family:'Sora'; font-weight:800; font-size:32px; letter-spacing:-0.02em; color:__ink__; }
-.kv-card .row .v.accent { color:__accent__; }
-.kv-card .row.divider { border-top:2px solid __border__; padding-top:28px; margin-top:8px; }
+.role-card { background:__card_bg__; border:1px solid __border__; border-radius:14px; padding:21px 34px 13px 34px; margin-top:34px; }
+.role-card .row { display:flex; align-items:baseline; gap:21px; padding:18px 0; border-bottom:1px solid __border_soft__; }
+.role-card .row:last-child { border-bottom:none; }
+.role-card .row .verb { font-family:'Sora'; font-weight:800; font-size:32px; color:__accent__; min-width:200px; text-transform:uppercase; letter-spacing:0.04em; }
+.role-card .row .body { font-family:'Inter'; font-size:26px; font-weight:500; color:__ink__; line-height:1.35; }
 
-.light-card { margin-top:55px; background:#ffffff; border:1px solid rgba(15,16,18,0.08); border-radius:21px; padding:55px 55px 34px 55px; box-shadow: 0 34px 89px -34px rgba(0,0,0,0.55); color:#0f1012; }
-.light-card .anchor-eyebrow { font-family:'Inter'; font-size:28px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:#D44A78; }
-.light-card .row-line { display:flex; justify-content:space-between; align-items:baseline; padding:13px 0; border-bottom:1px solid rgba(15,16,18,0.06); }
-.light-card .row-line:first-of-type { margin-top:21px; }
-.light-card .row-line .k { font-family:'Inter'; font-size:28px; font-weight:500; color:#6e6a63; }
-.light-card .row-line .v { font-family:'Sora'; font-weight:800; font-size:52px; letter-spacing:-0.03em; color:#3c3d40; }
-.light-card .gap-row { display:flex; justify-content:space-between; align-items:baseline; padding-top:34px; margin-top:21px; border-top:3px solid #D44A78; }
-.light-card .gap-row .k { font-family:'Inter'; font-size:28px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#D44A78; }
-.light-card .gap-row .v { font-family:'Sora'; font-weight:800; font-size:96px; letter-spacing:-0.045em; color:#D44A78; }
-.light-card .caption { font-family:'Inter'; font-size:24px; font-weight:400; color:#6e6a63; margin-top:21px; line-height:1.4; }
+.caption-quote { margin-top:34px; padding-left:21px; border-left:3px solid __accent__; font-family:'Inter'; font-size:24px; font-weight:500; line-height:1.45; color:__body__; font-style:italic; }
+.caption-line { margin-top:21px; font-family:'Inter'; font-size:24px; font-weight:500; color:__muted__; line-height:1.4; }
 
-.cta-ring { margin-top:55px; background:#0f1012; border:1px solid rgba(212,74,120,0.55); border-radius:21px; padding:55px 48px 48px 48px; box-shadow: inset 0 0 0 1px rgba(212,74,120,0.18), 0 34px 55px -34px rgba(15,16,18,0.45); }
-.cta-ring .cta-eyebrow { font-family:'Inter'; font-size:28px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:#E8709A; }
-.cta-ring h2 { font-family:'Sora'; font-weight:800; font-size:55px; line-height:1.04; letter-spacing:-0.03em; color:#f9f9fc; margin-top:21px; }
-.cta-ring .pill { display:inline-flex; align-items:center; gap:13px; margin-top:34px; padding:21px 34px; background:#E8709A; color:#0f1012; border-radius:999px; font-family:'Inter'; font-size:26px; font-weight:700; letter-spacing:0.02em; }
+/* Before / After cinematic comparison */
+.ba-card { margin-top:34px; background:#ffffff; border:1px solid rgba(15,16,18,0.08); border-radius:21px; padding:42px 42px 34px 42px; box-shadow: 0 34px 89px -34px rgba(0,0,0,0.55); color:#0f1012; }
+.ba-card .anchor-eyebrow { font-family:'Inter'; font-size:24px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:#D44A78; }
+.ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:34px; margin-top:21px; }
+.ba-col { }
+.ba-col-label { font-family:'Inter'; font-size:18px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:#6e6a63; padding-bottom:13px; border-bottom:1px solid rgba(15,16,18,0.08); }
+.ba-col.accent .ba-col-label { color:#D44A78; }
+.ba-step { display:flex; justify-content:space-between; align-items:baseline; padding:10px 0; }
+.ba-step .step { font-family:'Inter'; font-size:20px; font-weight:500; color:#6e6a63; }
+.ba-step .time { font-family:'Sora'; font-weight:800; font-size:22px; color:#3c3d40; letter-spacing:-0.02em; }
+.ba-col.accent .ba-step .time { color:#D44A78; }
+.ba-total { display:flex; justify-content:space-between; align-items:baseline; padding-top:13px; margin-top:8px; border-top:2px solid rgba(15,16,18,0.15); }
+.ba-total .label { font-family:'Inter'; font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:#6e6a63; }
+.ba-total .total-val { font-family:'Sora'; font-weight:800; font-size:34px; color:#3c3d40; letter-spacing:-0.025em; }
+.ba-col.accent .ba-total { border-top-color:#D44A78; }
+.ba-col.accent .ba-total .total-val { color:#D44A78; }
+.ba-card .punchline { margin-top:21px; padding-top:21px; border-top:1px solid rgba(15,16,18,0.08); font-family:'Sora'; font-weight:800; font-size:30px; color:#0f1012; letter-spacing:-0.02em; }
+.ba-card .punchline em { color:#D44A78; font-style:normal; }
+
+.anchor-caption { margin-top:21px; font-family:'Inter'; font-size:24px; font-weight:500; color:rgba(255,255,255,0.7); line-height:1.4; padding-left:21px; border-left:2px solid __imm_accent__; }
+
+.cta-ring { margin-top:34px; background:#0f1012; border:1px solid rgba(212,74,120,0.55); border-radius:21px; padding:48px 48px 42px 48px; box-shadow: inset 0 0 0 1px rgba(212,74,120,0.18), 0 34px 55px -34px rgba(15,16,18,0.45); }
+.cta-ring .cta-eyebrow { font-family:'Inter'; font-size:24px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:#E8709A; }
+.cta-ring h2 { font-family:'Sora'; font-weight:800; font-size:44px; line-height:1.04; letter-spacing:-0.03em; color:#f9f9fc; margin-top:13px; }
+.cta-ring .pill { display:inline-flex; align-items:center; gap:13px; margin-top:34px; padding:18px 34px; background:#E8709A; color:#0f1012; border-radius:999px; font-family:'Inter'; font-size:26px; font-weight:700; letter-spacing:0.02em; }
 .cta-ring .pill .arrow { font-family:'Sora'; font-weight:700; }
-.cta-ring .reassure { font-family:'Inter'; font-size:24px; font-weight:400; color:rgba(255,255,255,0.55); margin-top:21px; }
+.cta-ring .reassure { font-family:'Inter'; font-size:22px; font-weight:400; color:rgba(255,255,255,0.55); margin-top:21px; }
 """
 
 for k, v in TOK.items(): CSS = CSS.replace(f"__{k}__", v)
 for k, v in IMM.items(): CSS = CSS.replace(f"__imm_{k}__", v)
 
 def wrap(inner, surface="light"):
-    return f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>
-<div class="canvas {surface}"><div class="content">{inner}</div></div></body></html>"""
+    return f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body><div class="canvas {surface}"><div class="content">{inner}</div></div></body></html>"""
 
 def masthead():
-    return f"""<div class="masthead"><img src="data:image/png;base64,{LOGO_DECK}" class="mark" alt="smbx.ai"><div class="meta">Field Note &nbsp;·&nbsp; <span class="num">{NOTE_NO}</span></div></div>"""
+    return f"""<div class="masthead"><img src="data:image/png;base64,{LOGO_DECK}" class="mark"><div class="meta">Field Note &nbsp;·&nbsp; <span class="num">{NOTE_NO}</span></div></div>"""
 
 def footer():
-    return f"""<div class="foot"><div class="who"><img src="data:image/jpeg;base64,{HEADSHOT}" class="portrait" alt="Paul Baker"><span><span class="name-ink">Paul Baker</span> &nbsp;·&nbsp; smbx.ai</span></div><div class="num">{YEAR_WEEK}</div></div>"""
+    return f"""<div class="foot"><div class="who"><img src="data:image/jpeg;base64,{HEADSHOT}" class="portrait"><span><span class="name-ink">Paul Baker</span> &nbsp;·&nbsp; smbx.ai</span></div><div class="num">{YEAR_WEEK}</div></div>"""
 
 def attr_imm():
-    return f"""<div class="attr-imm"><img src="data:image/png;base64,{LOGO_DARK_BG}" class="mark" alt="smbx.ai"><div class="meta">Paul Baker &nbsp;·&nbsp; <span class="num">{YEAR_WEEK}</span></div></div>"""
+    return f"""<div class="attr-imm"><img src="data:image/png;base64,{LOGO_DARK_BG}" class="mark"><div class="meta">Paul Baker &nbsp;·&nbsp; <span class="num">{YEAR_WEEK}</span></div></div>"""
 
 # S1 — Cover
 S1 = wrap(f"""
@@ -168,27 +143,17 @@ S1 = wrap(f"""
       <span>Brokers &nbsp;·&nbsp; $5M&ndash;$15M EBITDA &nbsp;·&nbsp; Valuations</span>
     </div>
 
-    <h1 class="hook" style="font-size:68px;">
-      3 valuations. One morning.
+    <h1 class="hook" style="font-size:72px;">
+      3 valuations. Before lunch.
     </h1>
 
-    <div class="mega-compare">
-      <div class="mega-row">
-        <span class="label">Client companies valued</span>
-        <span class="val muted num">3</span>
-      </div>
-      <div class="mega-row">
-        <span class="label">Methodologies per company</span>
-        <span class="val accent num">3</span>
-      </div>
-      <div class="mega-gap">
-        <span class="label">Time compression vs traditional</span>
-        <span class="val num">21&times;</span>
-      </div>
-    </div>
+    <p class="sub">
+      <strong>Multi-methodology.</strong> Documented add-backs.
+      Defensible math.
+    </p>
 
     <div class="cover-byline">
-      <img src="data:image/jpeg;base64,{HEADSHOT}" class="portrait" alt="Paul Baker">
+      <img src="data:image/jpeg;base64,{HEADSHOT}" class="portrait">
       <div class="who">
         <div class="name">Paul Baker</div>
         <div class="cred">Founder, smbx.ai &nbsp;·&nbsp; <span class="num">20+</span> years in M&amp;A</div>
@@ -200,137 +165,130 @@ S1 = wrap(f"""
     </div>
 """, surface="light")
 
-# S2 — Company A: full multi-methodology breakdown
+# S2 — What each valuation includes (light, list card)
 S2 = wrap(f"""
-    <div class="eyebrow-section">Company A &middot; $8M EBITDA manufacturer</div>
+    <div class="eyebrow-section">What each valuation includes</div>
 
-    <h1 class="section" style="font-size:64px;">
-      DCF, comps, precedent. Same morning.
+    <h1 class="section" style="font-size:56px;">
+      Seven things in every report.
     </h1>
 
-    <div class="kv-card-dark">
-      <div class="row">
-        <span class="k">DCF (10-yr, 2-stage)</span>
-        <span class="v num">$52.0M</span>
-      </div>
-      <div class="row">
-        <span class="k">Trading comps (7.5&times;)</span>
-        <span class="v num">$60.0M</span>
-      </div>
-      <div class="row">
-        <span class="k">Precedent M&amp;A (6.8&times;)</span>
-        <span class="v num">$54.4M</span>
-      </div>
-      <div class="row">
-        <span class="k">Documented add-backs</span>
-        <span class="v num">$1.4M</span>
-      </div>
-      <div class="row">
-        <span class="k">Indicated range</span>
-        <span class="v num accent">$52M &ndash; $60M</span>
-      </div>
+    <div class="list-card-dark">
+      <div class="row">SDE multiples, industry-matched comps</div>
+      <div class="row">Comparable transactions, closed deals</div>
+      <div class="row">Asset-based floor</div>
+      <div class="row">Add-back schedule, line by line</div>
+      <div class="row">Seven-factor quality score</div>
+      <div class="row">SBA financing feasibility</div>
+      <div class="row">Sensitivity analysis</div>
+    </div>
+
+    <div class="caption-quote">
+      &ldquo;Not a calculator. A full valuation report.&rdquo;
     </div>
 
     {footer()}
 """, surface="light")
 
-# S3 — Companies B & C compressed (bordered card)
+# S3 — 22 deterministic formulas
 S3 = wrap(f"""
-    <div class="eyebrow-section">Companies B + C &middot; same hour</div>
+    <div class="eyebrow-section"><span class="num">22</span> deterministic formulas</div>
 
     <h1 class="section" style="font-size:60px;">
-      Two more before the barista finishes the foam.
+      Not AI estimates. Not rules of thumb.
     </h1>
 
-    <div class="kv-card">
+    <div class="role-card">
       <div class="row">
-        <span class="k">Company B &middot; SaaS</span>
-        <span class="v num">$5.5M EBITDA</span>
-      </div>
-      <div class="row">
-        <span class="k">Range (3 methods)</span>
-        <span class="v num accent">$44M &ndash; $60M</span>
-      </div>
-      <div class="row divider">
-        <span class="k">Company C &middot; HVAC roll-up</span>
-        <span class="v num">$14M EBITDA</span>
+        <span class="verb">Auditable</span>
+        <span class="body">every line traceable to source.</span>
       </div>
       <div class="row">
-        <span class="k">Range (3 methods)</span>
-        <span class="v num accent">$77M &ndash; $98M</span>
+        <span class="verb">Reproducible</span>
+        <span class="body">same inputs, same outputs, every time.</span>
       </div>
+      <div class="row">
+        <span class="verb">Defensible</span>
+        <span class="body">survives a buyer&rsquo;s diligence team.</span>
+      </div>
+    </div>
+
+    <div class="caption-quote">
+      &ldquo;Your client&rsquo;s attorney can challenge any line. It holds up.&rdquo;
     </div>
 
     {footer()}
 """, surface="light")
 
-# S4 — Cinematic anchor: the compression
+# S4 — Before vs After cinematic anchor
 S4 = wrap(f"""
-    <div class="eyebrow-section">The time arithmetic</div>
+    <div class="eyebrow-section">Before vs after</div>
 
     <h1 class="section" style="font-size:60px;">
-      What your associate used to take.
+      <span class="num">11</span> days. <span class="num">1</span> hour.
     </h1>
 
-    <div class="light-card">
-      <div class="anchor-eyebrow">Per valuation, traditional workflow</div>
+    <div class="ba-card">
+      <div class="anchor-eyebrow">Per valuation, traditional vs Yulia</div>
 
-      <div class="row-line">
-        <span class="k">Analyst gather + normalize</span>
-        <span class="v num">3 days</span>
-      </div>
-      <div class="row-line">
-        <span class="k">Methodology builds &times; 3</span>
-        <span class="v num">5 days</span>
-      </div>
-      <div class="row-line">
-        <span class="k">Review, iterate, deliver</span>
-        <span class="v num">2 wks</span>
+      <div class="ba-grid">
+        <div class="ba-col">
+          <div class="ba-col-label">Before</div>
+          <div class="ba-step"><span class="step">Research</span><span class="time num">3 days</span></div>
+          <div class="ba-step"><span class="step">Normalize</span><span class="time num">2 days</span></div>
+          <div class="ba-step"><span class="step">Model</span><span class="time num">3 days</span></div>
+          <div class="ba-step"><span class="step">Write</span><span class="time num">2 days</span></div>
+          <div class="ba-step"><span class="step">Format</span><span class="time num">1 day</span></div>
+          <div class="ba-total">
+            <span class="label">Total</span>
+            <span class="total-val num">11 days</span>
+          </div>
+        </div>
+
+        <div class="ba-col accent">
+          <div class="ba-col-label">After</div>
+          <div class="ba-step"><span class="step">Intake</span><span class="time num">15 min</span></div>
+          <div class="ba-step"><span class="step">Review</span><span class="time num">30 min</span></div>
+          <div class="ba-step"><span class="step">Send</span><span class="time num">15 min</span></div>
+          <div class="ba-total">
+            <span class="label">Total</span>
+            <span class="total-val num">1 hour</span>
+          </div>
+        </div>
       </div>
 
-      <div class="gap-row">
-        <span class="k">Yulia, same output</span>
-        <span class="v num">1 AM</span>
-      </div>
-
-      <div class="caption">
-        Every add-back documented. Every multiple sourced. Every range defensible.
+      <div class="punchline">
+        Same quality. <em>99% less time.</em>
       </div>
     </div>
 
     {attr_imm()}
 """, surface="imm")
 
-# S5 — CTA close
+# S5 — Pricing close
 S5 = wrap(f"""
-    <div class="eyebrow-section">See it live</div>
+    <div class="eyebrow-section">Pricing</div>
 
-    <h1 class="section" style="font-size:72px;">
-      Bring one client file. Watch Yulia value it three ways.
+    <h1 class="section" style="font-size:84px;">
+      $149 a month.
     </h1>
 
     <p class="sub">
-      Upload financials. Pick the methodologies. Yulia returns a
-      defensible range with <strong>documented add-backs</strong> in under
-      10 minutes per company.
+      <strong>Unlimited valuations.</strong>
+      Three clients got institutional analysis before lunch.
     </p>
 
     <div class="cta-ring">
-      <div class="cta-eyebrow">Free &middot; No account required</div>
+      <div class="cta-eyebrow">Defensible math &middot; Same quality</div>
       <h2>Talk to Yulia.</h2>
-      <span class="pill">
-        smbx.ai <span class="arrow">&rsaquo;</span>
-      </span>
-      <div class="reassure">
-        Valuation memo delivered &nbsp;·&nbsp; Your data stays yours
-      </div>
+      <span class="pill">smbx.ai <span class="arrow">&rsaquo;</span></span>
+      <div class="reassure">Free &middot; No account required &middot; Your data stays yours</div>
     </div>
 
     {footer()}
 """, surface="light")
 
 slides = [S1, S2, S3, S4, S5]
-
 print(f"Rendering {len(slides)} slides ({MODE}) at {W}x{H} @ {DPR}x...")
 
 with sync_playwright() as p:
