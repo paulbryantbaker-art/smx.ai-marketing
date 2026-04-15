@@ -133,7 +133,7 @@ h1.hook {
 }
 ```
 
-`<br>` acceptable for deliberate two-line editorial cadence. Size per content: 72–84px for most hooks.
+`<br>` is acceptable **only** for multi-fragment cadence (each `<br>`-separated piece is a complete thought, like "40 hours.<br>30 minutes."). **Never use `<br>` inside a single sentence.** If "Hidden in plain sight." doesn't fit on one line at 84px, reduce the H1 size to ~72px so the whole phrase fits — do not force-split it. Size per content: 72–84px for most hooks; drop to 64–68px if the phrase is long.
 
 ### Visual options
 
