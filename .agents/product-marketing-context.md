@@ -2,7 +2,7 @@
 
 *Last updated: 2026-04-05*
 
-> **Strategic source of truth:** [`SMBX_90_DAY_EXECUTION_PLAN.md`](../SMBX_90_DAY_EXECUTION_PLAN.md) — 13-week calendar, content formula, stats arsenal, operations cadence. This file is foundational product/audience/voice context that every content skill reads before producing output. For strategy, phase, and per-week plan, read the execution plan.
+> **Strategic source of truth:** [`SMBX_90_DAY_PLAN.xlsx`](../SMBX_90_DAY_PLAN.xlsx) — 13-week calendar, content formula, stats arsenal, operations cadence. This file is foundational product/audience/voice context that every content skill reads before producing output. For strategy, phase, and per-week plan, open the xlsx.
 
 ## Product Overview
 **One-liner:** smbx.ai is an AI deal intelligence platform that guides business owners, buyers, and their advisors through every step of buying or selling a business.
@@ -31,7 +31,7 @@
 - **The Rundown™** → Buyer / Search Fund Operator. *Confidence + speed.* "Here's how to know before you commit $1.5M."
 
 ## Target Audience
-**Five personas simultaneously.** Full profiles live in [`SMBX_90_DAY_EXECUTION_PLAN.md`](../SMBX_90_DAY_EXECUTION_PLAN.md#the-five-personas) — this section is the compact reference for content skills.
+**Five personas simultaneously.** Full profiles live in [`SMBX_90_DAY_PLAN.xlsx`](../SMBX_90_DAY_PLAN.xlsx) — this section is the compact reference for content skills.
 
 ### Persona 1: The Reluctant Seller
 - 50-65, service business $500K-$5M. Thinking about selling for 1-3 years. Has done nothing.
@@ -221,7 +221,7 @@
 ## Current Campaign Phase
 **Phase 1 — Seed (Weeks 1-3):** Zero product mentions. Earn the right to be heard. 100% pure value content (Open Loop campaign). Deploy Blind Equity and The Rundown as open loops. Grow from ~300 to 420+ connections. Target 5-10 organic Yulia conversations from profile clicks. No links anywhere — not even first comments.
 
-See [`SMBX_90_DAY_EXECUTION_PLAN.md`](../SMBX_90_DAY_EXECUTION_PLAN.md) for the full 5-phase structure: Seed (1-3) → Soft Open (4-5) → Founding Push (6-8) → Launch (9-10) → Flywheel (11-13).
+See [`SMBX_90_DAY_PLAN.xlsx`](../SMBX_90_DAY_PLAN.xlsx) for the full 5-phase structure: Seed (1-3) → Soft Open (4-5) → Founding Push (6-8) → Launch (9-10) → Flywheel (11-13).
 
 ## Creative Tools
 | Tool | Cost | Purpose |

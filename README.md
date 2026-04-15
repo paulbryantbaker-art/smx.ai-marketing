@@ -6,9 +6,9 @@
 
 ## Quick Start
 
-**Start here:** Read [SMBX_90_DAY_EXECUTION_PLAN.md](SMBX_90_DAY_EXECUTION_PLAN.md) — the definitive strategy. Five personas, 13-week calendar across five phases (Seed → Soft Open → Founding Push → Launch → Flywheel), content formula, stats arsenal, operations cadence, and metrics.
+**Start here:** Open [SMBX_90_DAY_PLAN.xlsx](SMBX_90_DAY_PLAN.xlsx) — the definitive strategy. Five personas, 13-week calendar across five phases (Seed → Soft Open → Founding Push → Launch → Flywheel), content formula, stats arsenal, operations cadence, and metrics.
 
-**Then:** Read [.impeccable.md](.impeccable.md) for the taste layer that governs every visual asset (three-word brand personality, format DNA, anti-references, design principles).
+**Then:** Read [DESIGN_HANDOFF.md](DESIGN_HANDOFF.md) and [DESIGN_LANGUAGE.md](DESIGN_LANGUAGE.md) for the visual system every carousel and single-image post must match.
 
 ---
 
@@ -16,13 +16,14 @@
 
 | File / Folder | What It Does |
 |---|---|
-| `SMBX_90_DAY_EXECUTION_PLAN.md` | **The single source of truth.** 90-day plan with five personas, 13-week calendar, content formula, stats arsenal, operations cadence. Supersedes all prior strategy docs. |
-| `STYLE_GUIDE.md` | Universal brand and UI style guide — color tokens, typography, logo usage, components, document PDF branding. Reference for any visual asset production. |
+| `SMBX_90_DAY_PLAN.xlsx` | **The single source of truth.** 90-day plan with five personas, 13-week calendar, content formula, stats arsenal, operations cadence. Paul's working surface — edit here, not in markdown. |
+| `DESIGN_HANDOFF.md` | Short orientation on the 2026-04-15 visual system. Key deltas from the deprecated cream/rose-gold doc. Read before DESIGN_LANGUAGE.md. |
+| `DESIGN_LANGUAGE.md` | Full authoritative visual system — palette, type, spacing, motion, editorial primitives, anti-slop rules, and § 9 "Translating to LinkedIn documents" as the direct output spec. |
+| `STYLE_GUIDE.md` | Brand voice and copy patterns. Unchanged from 2026-04-04. Authoritative for logo asset rules. |
 | `.impeccable.md` | The taste layer. Three-word brand personality (Veteran. Warm. Precise.), format DNA (institutional research + boutique VC memo), anti-references, design principles. |
-| `GEMINI_LINKEDIN_PROFILE_BRIEF.md` | Brief for LinkedIn profile modernization. Paste into a dedicated Gemini chat to generate headline, about, featured section, and experience copy. Do before Week 1. |
 | `.agents/product-marketing-context.md` | Product/audience/voice context for marketing skills. Read by every content skill before producing output. |
-| `.agents/skills/linkedin-image-post/` | Skill for 1080×1080 single image posts. Flat/document aesthetic, Fibonacci spacing, light/dark modes. |
-| `.agents/skills/linkedin-carousel/` | Skill for 1080×1350 multi-slide carousels. Same vocabulary, scaled up, with slide type templates and deck cohesion rules. |
+| `.agents/skills/linkedin-image-post/` | Skill for 1080×1350 single-image Field Note posts. |
+| `.agents/skills/linkedin-carousel/` | Skill for 1080×1350 multi-slide carousels. Locked to the 2026-04-15 canon (Field Note masthead, two-variant eyebrows, Sora 800 + Inter, Fibonacci spacing, light-dominant rhythm with dark cinematic anchor). |
 | `assets/logos/` | Active logo assets: `G3L.png` (light wordmark), `G3D.png` (dark wordmark), `X.png` (icon mark), `LI BG.png` (LinkedIn banner background). |
 | `assets/portrait-square.jpeg` | Paul's pre-cropped square headshot. Used in masthead/footer of every asset. |
 | `content/week-01/` through `content/week-13/` | Weekly content production folders. Python render scripts + PDF/PNG outputs per post. |
