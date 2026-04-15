@@ -69,8 +69,8 @@ body { width:1080px; height:1350px; overflow:hidden; font-family:'Inter', system
 .eyebrow-hook .dot { width:14px; height:14px; border-radius:50%; background:__accent__; flex-shrink:0; }
 
 h1.hook {
-    font-family:'Sora'; font-weight:800; font-size:84px;
-    line-height:0.96; letter-spacing:-0.04em;
+    font-family:'Sora'; font-weight:800; font-size:72px;
+    line-height:1.02; letter-spacing:-0.04em;
     color:__ink__; margin-top:21px;
 }
 
@@ -158,7 +158,7 @@ HTML = f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>{CSS}</style>
   </div>
 
   <h1 class="hook">
-    Hidden in<br>plain sight.
+    Hidden in plain sight.
   </h1>
 
   <div class="compare-cols">
@@ -189,7 +189,7 @@ HTML = f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>{CSS}</style>
       <img src="data:image/jpeg;base64,{HEADSHOT}" class="portrait" alt="Paul Baker">
       <div class="who-text">
         <div class="name">Paul Baker</div>
-        <div class="cred">Founder, smbx.ai &nbsp;·&nbsp; For: {GROUP}</div>
+        <div class="cred">Founder, smbx.ai &nbsp;·&nbsp; <span class="num">20+</span> years in M&amp;A</div>
       </div>
     </div>
     <div class="right">

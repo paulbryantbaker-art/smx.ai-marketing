@@ -158,12 +158,8 @@ p.sub strong { color:__ink__; font-weight:600; }
 
 .cover-swipe {
     margin-top:auto;
-    display:flex; align-items:center; justify-content:space-between;
+    display:flex; align-items:center; justify-content:flex-end;
     padding-top:21px; border-top:1px solid __border__;
-}
-.cover-swipe .group {
-    font-family:'Inter'; font-size:22px; font-weight:500;
-    color:__muted__;
 }
 .cover-swipe .hint {
     font-family:'Inter'; font-size:24px; font-weight:700;
@@ -331,7 +327,6 @@ S1 = wrap(f"""
     </div>
 
     <div class="cover-swipe">
-      <span class="group">For: {GROUP}</span>
       <span class="hint">Swipe &rsaquo;</span>
     </div>
 """, surface="light")

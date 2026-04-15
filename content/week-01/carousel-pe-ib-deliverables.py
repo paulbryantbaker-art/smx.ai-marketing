@@ -81,8 +81,7 @@ p.sub strong { color:__ink__; font-weight:600; }
 .cover-byline .who .name { font-family:'Sora'; font-weight:800; font-size:34px; letter-spacing:-0.02em; color:__ink__; }
 .cover-byline .who .cred { font-family:'Inter'; font-size:24px; font-weight:500; color:__muted__; margin-top:8px; }
 
-.cover-swipe { margin-top:auto; display:flex; align-items:center; justify-content:space-between; padding-top:21px; border-top:1px solid __border__; }
-.cover-swipe .group { font-family:'Inter'; font-size:22px; font-weight:500; color:__muted__; }
+.cover-swipe { margin-top:auto; display:flex; align-items:center; justify-content:flex-end; padding-top:21px; border-top:1px solid __border__; }
 .cover-swipe .hint { font-family:'Inter'; font-size:24px; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color:__accent__; }
 
 .foot { margin-top:auto; display:flex; align-items:center; justify-content:space-between; padding-top:21px; border-top:1px solid __border__; font-family:'Inter'; font-size:26px; font-weight:500; color:__muted__; }
@@ -178,7 +177,6 @@ S1 = wrap(f"""
     </div>
 
     <div class="cover-swipe">
-      <span class="group">For: {GROUP}</span>
       <span class="hint">Swipe &rsaquo;</span>
     </div>
 """, surface="light")
