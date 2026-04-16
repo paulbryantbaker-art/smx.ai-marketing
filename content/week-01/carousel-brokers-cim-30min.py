@@ -38,7 +38,7 @@ LOGO_DECK    = b64(REPO / "assets" / "logos" / TOK["logo_file"])
 HEADSHOT     = b64(REPO / "assets" / "portrait-square.jpeg")
 
 CSS = """
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 * { margin:0; padding:0; box-sizing:border-box; }
 body { width:1080px; height:1350px; overflow:hidden; font-family:'Inter', system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
 .num { font-variant-numeric:tabular-nums; font-feature-settings:'tnum' 1; }
@@ -52,10 +52,11 @@ body { width:1080px; height:1350px; overflow:hidden; font-family:'Inter', system
 .masthead .meta { font-family:'Inter'; font-size:24px; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color:__muted__; }
 .masthead .meta .num { color:__ink__; }
 
-.eyebrow-hook { display:flex; align-items:center; gap:13px; margin-top:55px; font-family:'Inter'; font-size:28px; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color:__accent__; }
-.eyebrow-hook .dot { width:14px; height:14px; border-radius:50%; background:__accent__; flex-shrink:0; }
-.eyebrow-section { font-family:'Inter'; font-size:28px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:__accent__; }
-.canvas.imm .eyebrow-section { color:__imm_accent__; }
+/* Eyebrow demoted to muted gray — accent reserved for one moment per slide */
+.eyebrow-hook { display:flex; align-items:center; gap:13px; margin-top:55px; font-family:'Inter'; font-size:24px; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color:__muted__; }
+.eyebrow-hook .dot { width:13px; height:13px; border-radius:50%; background:__accent__; flex-shrink:0; }
+.eyebrow-section { font-family:'Inter'; font-size:24px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:__muted__; }
+.canvas.imm .eyebrow-section { color:rgba(255,255,255,0.55); }
 
 h1.hook { font-family:'Sora'; font-weight:800; line-height:0.98; letter-spacing:-0.04em; color:__ink__; margin-top:21px; }
 .canvas.imm h1.hook { color:__imm_ink__; }
@@ -66,15 +67,25 @@ p.sub { font-family:'Inter'; font-weight:400; font-size:30px; line-height:1.4; c
 p.sub strong { color:__ink__; font-weight:600; }
 .sub-stack > div + div { margin-top:8px; }
 
-.mega-compare { margin-top:34px; border-top:1px solid __border__; border-bottom:1px solid __border__; padding:21px 0; }
-.mega-row { display:flex; justify-content:space-between; align-items:baseline; padding:13px 0; }
-.mega-row .label { font-family:'Inter'; font-size:24px; font-weight:500; color:__muted__; }
-.mega-row .val { font-family:'Sora'; font-weight:800; font-size:55px; letter-spacing:-0.04em; color:__ink__; }
-.mega-row .val.muted { color:__muted__; font-size:48px; }
-.mega-row .val.accent { color:__accent__; }
-.mega-gap { display:flex; justify-content:space-between; align-items:baseline; margin-top:13px; padding:21px 0 0 0; border-top:3px solid __accent__; }
-.mega-gap .label { font-family:'Inter'; font-size:21px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:__accent__; }
-.mega-gap .val { font-family:'Sora'; font-weight:800; font-size:89px; letter-spacing:-0.045em; color:__accent__; }
+/* Cover stat strip — horizontal 4-chip ribbon, different shape than 3-row mega-compare */
+.stat-strip { margin-top:34px; padding:21px 0; border-top:1px solid __border__; border-bottom:1px solid __border__; display:grid; grid-template-columns:repeat(4,1fr); gap:21px; }
+.stat-strip .stat { text-align:left; }
+.stat-strip .stat .num { font-family:'Sora'; font-weight:800; font-size:48px; letter-spacing:-0.04em; color:__ink__; line-height:1.0; display:block; }
+.stat-strip .stat .num.accent { color:__accent__; }
+.stat-strip .stat .label { font-family:'Inter'; font-size:18px; font-weight:600; color:__muted__; text-transform:uppercase; letter-spacing:0.12em; margin-top:8px; display:block; }
+
+/* Signature close (S5) — magazine end-page, whisper-weight type, lots of breathing */
+.signature-page { display:flex; flex-direction:column; height:100%; padding:0; }
+.sig-top { padding-bottom:21px; border-bottom:1px solid __border__; display:flex; justify-content:space-between; align-items:center; }
+.sig-top .mark { height:42px; }
+.sig-top .meta { font-family:'Inter'; font-size:21px; font-weight:600; color:__muted__; text-transform:uppercase; letter-spacing:0.18em; }
+.sig-top .meta .end { color:__accent__; }
+.sig-mid { flex:1; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
+.sig-quiet { font-family:'Sora'; font-weight:400; font-size:96px; color:__ink__; letter-spacing:-0.045em; line-height:1.0; }
+.sig-link { margin-top:34px; font-family:'Inter'; font-size:34px; font-weight:600; color:__accent__; letter-spacing:0.04em; }
+.sig-link .arrow { font-family:'Sora'; font-weight:600; }
+.sig-aside { margin-top:21px; font-family:'Inter'; font-size:21px; font-weight:400; color:__muted__; }
+.sig-bottom { padding-top:21px; border-top:1px solid __border__; }
 
 .cover-byline { margin-top:34px; display:flex; align-items:center; gap:21px; }
 .cover-byline .portrait { width:89px; height:89px; border-radius:50%; object-fit:cover; object-position:center; border:2px solid __border__; }
@@ -167,19 +178,11 @@ S1 = wrap(f"""
 
     <p class="sub">Same CIM. Same 32 pages. Institutional quality.</p>
 
-    <div class="mega-compare">
-      <div class="mega-row">
-        <span class="label">Your analyst</span>
-        <span class="val muted num">40 hrs</span>
-      </div>
-      <div class="mega-row">
-        <span class="label">Yulia</span>
-        <span class="val accent num">30 min</span>
-      </div>
-      <div class="mega-gap">
-        <span class="label">Time leverage</span>
-        <span class="val num">80&times;</span>
-      </div>
+    <div class="stat-strip">
+      <div class="stat"><span class="num">32</span><span class="label">pages</span></div>
+      <div class="stat"><span class="num">9</span><span class="label">sections</span></div>
+      <div class="stat"><span class="num">30</span><span class="label">min Yulia</span></div>
+      <div class="stat"><span class="num accent">$149</span><span class="label">per month</span></div>
     </div>
 
     <div class="cover-byline">
@@ -306,28 +309,25 @@ S4 = wrap(f"""
 """, surface="imm")
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# S5 — Pricing close (light, dark CTA block)
+# S5 — Minimal signature close (magazine end-page)
+# Whisper-weight Sora 400 contrasts with hero-weight Sora 800 elsewhere.
+# Per Paul: "feel like the last page of a Field Note magazine, not a pitch."
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 S5 = wrap(f"""
-    <div class="eyebrow-section">Pricing</div>
+    <div class="signature-page">
+      <div class="sig-top">
+        <img src="data:image/png;base64,{LOGO_DECK}" class="mark" alt="smbx.ai">
+        <div class="meta">Field Note &nbsp;·&nbsp; <span class="num">{NOTE_NO}</span> &nbsp;·&nbsp; <span class="end">End</span></div>
+      </div>
 
-    <h1 class="section" style="font-size:84px;">
-      $149 a month.
-    </h1>
+      <div class="sig-mid">
+        <div class="sig-quiet">Talk to Yulia.</div>
+        <div class="sig-link">smbx.ai &nbsp;<span class="arrow">&rsaquo;</span></div>
+        <div class="sig-aside">$149/month &middot; Run 15 mandates on one subscription.</div>
+      </div>
 
-    <p class="sub">
-      Not per CIM. <strong>Per month.</strong>
-      Run 15 mandates on one subscription.
-    </p>
-
-    <div class="cta-ring">
-      <div class="cta-eyebrow">Same 32 pages &middot; Institutional quality</div>
-      <h2>Talk to Yulia.</h2>
-      <span class="pill">smbx.ai <span class="arrow">&rsaquo;</span></span>
-      <div class="reassure">Free &middot; No account required &middot; Your data stays yours</div>
+      {footer()}
     </div>
-
-    {footer()}
 """, surface="light")
 
 slides = [S1, S2, S3, S4, S5]
